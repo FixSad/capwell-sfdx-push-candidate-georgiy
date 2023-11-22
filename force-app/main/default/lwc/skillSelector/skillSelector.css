@@ -1,0 +1,13 @@
+.skill-container {
+  padding: 10px;
+}
+
+.skill-container .slds-listbox_selection-group {
+  margin-top: 10px;
+  overflow: visible;
+  height: auto;
+}
+
+.skill-container .slds-listbox-item {
+  margin-bottom: 5px;
+}

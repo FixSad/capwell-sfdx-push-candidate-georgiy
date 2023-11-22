@@ -1,0 +1,6 @@
+.style {
+  --lwc-tableCellSpacing: 10px 8px;
+  --slds-g-color-border-base-1: #F0F0F0;
+  --lwc-brandTextLink: #1B73E8;
+  --lwc-tableColorBackgroundHeader: transparent;
+}

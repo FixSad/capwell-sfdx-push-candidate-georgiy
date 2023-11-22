@@ -1,0 +1,56 @@
+//Map Contact
+List<opa_candidate_log__c> notes = [SELECT Id, person_id__c, email__c, Contact__c, ErrorMessage__c, isProcessed__c FROM opa_candidate_log__c WHERE isProcessed__c = false LIMIT 1000];
+Set<String> contIds = new Set<String>();
+for (opa_candidate_log__c tmpRec : notes) {
+    if (String.isNotBlank(tmpRec.person_id__c)) {
+        contIds.add(tmpRec.person_id__c);
+    }
+}
+List<Contact> contList = [SELECT Id, LegacyOpaID__c, Email FROM Contact WHERE LegacyOpaID__c IN :contIds];
+for (opa_candidate_log__c tmpRec : notes) {
+    Boolean isFound = false;
+    for (Contact tmpCont : contList) {
+        if (tmpRec.person_id__c == tmpCont.LegacyOpaID__c) {
+            isFound = true;
+            tmpRec.Contact__c = tmpCont.Id;
+            tmpRec.isEmailSame__c = tmpRec.email__c == tmpCont.Email;
+            break;
+        }
+    }
+    tmpRec.isProcessed__c = true;
+    tmpRec.ErrorMessage__c = isFound ? tmpRec.ErrorMessage__c : tmpRec.ErrorMessage__c + ' - Contact Not Found';
+}
+update notes;
+
+//Map Users
+List<User> users = [SELECT Id, LegacyOpaID__c, Email FROM User];
+List<opa_candidate_log__c> notes = [SELECT Id, User__c, user_id__c, ErrorMessage__c, isProcessed__c FROM opa_candidate_log__c WHERE isProcessed__c = false LIMIT 1000];
+for (opa_candidate_log__c tmpRec : notes) {
+    Boolean isFound = false;
+    for (User tmpUsr : users) {
+        if (tmpRec.user_id__c == tmpUsr.LegacyOpaID__c) {
+            isFound = true;
+            tmpRec.User__c = tmpUsr.Id;
+            break;
+        }
+    }
+    tmpRec.isProcessed__c = true;
+    tmpRec.ErrorMessage__c = isFound ? tmpRec.ErrorMessage__c : tmpRec.ErrorMessage__c + ' - User Not Found';
+}
+update notes;
+
+//Update created DateTime
+List<opa_candidate_log__c> notes = [SELECT Id, isProcessed__c, CreatedDate__c, created__c FROM opa_candidate_log__c WHERE isProcessed__c = false LIMIT 1000];
+for (opa_candidate_log__c tmpRec : notes) {
+    String currDate = tmpRec.created__c;
+    if (String.isNotBlank(currDate)) {
+        String day = currDate.substring(0, 2);
+        String month = currDate.substring(3, 5);
+        String year = currDate.substring(6, 10);
+        String hour = currDate.substring(11, 13);
+        String minutes = currDate.substring(14);
+        tmpRec.CreatedDate__c = DateTime.newInstance(Integer.valueOf(year), Integer.valueOf(month), Integer.valueOf(day), Integer.valueOf(hour), Integer.valueOf(minutes), 0);
+    }
+    tmpRec.isProcessed__c = true;
+}
+update notes;

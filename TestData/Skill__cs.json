@@ -1,0 +1,18 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Skill__c",
+                "referenceId": "Skill__Php"
+            },
+            "Name": "PHP"
+        },
+        {
+            "attributes": {
+                "type": "Skill__c",
+                "referenceId": "Skill__DotNet"
+            },
+            "Name": ".Net"
+        }
+    ]
+}

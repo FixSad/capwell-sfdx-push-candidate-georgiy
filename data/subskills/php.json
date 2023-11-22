@@ -1,0 +1,41 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__PHP_Laravel"
+      },
+      "Name": "Laravel",
+      "Parent__c": "@Skill__PHP",
+      "LegacySkillId__C": 332
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__PHP_Symphony"
+      },
+      "Name": "Sympony",
+      "Parent__c": "@Skill__PHP",
+      "LegacySkillId__C": 326
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__PHP_CodeIgniter"
+      },
+      "Name": "CodeIgniter",
+      "Parent__c": "@Skill__PHP",
+      "LegacySkillId__C": 502
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__PHP_Cake"
+      },
+      "Name": "Cake",
+      "Alias__C": "CakePHP",
+      "Parent__c": "@Skill__PHP",
+      "LegacySkillId__C": 136
+    }
+  ]
+}

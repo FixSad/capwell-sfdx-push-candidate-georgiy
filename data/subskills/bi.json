@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__BI_Consultancy"
+      },
+      "Name": "BI Consultancy",
+      "Parent__c": "@Skill__BI",
+      "LegacySkillId__C": 237
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__ERP"
+            },
+            "Name": "erp consultant",
+            "Slug__c": "erp-consultant",
+            "Skill__c": "@Skill__ERP",
+            "Radar_Page_Group__c": "@Page_Group__AptMgt"
+        },
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__CMS"
+            },
+            "Name": "crm specialist",
+            "Slug__c": "crm-specialist",
+            "Skill__c": "@Skill__CRM",
+            "Radar_Page_Group__c": "@Page_Group__AptMgt"
+        },
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__SAP"
+            },
+            "Name": "sap consultant",
+            "Slug__c": "sap consultant",
+            "Skill__c": "@Skill__App_Management",
+            "Radar_Page_Group__c": "@Page_Group__AptMgt"
+        },
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__DND"
+            },
+            "Name": "dymanics nav developer",
+            "Slug__c": "dymanics-nav-developer",
+            "Skill__c": "@Skill__App_Management",
+            "Radar_Page_Group__c": "@Page_Group__AptMgt"
+        },
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__DAC"
+            },
+            "Name": "dynamics ax consultant",
+            "Slug__c": "dynamics-ax-consultant",
+            "Skill__c": "@Skill__App_Management",
+            "Radar_Page_Group__c": "@Page_Group__AptMgt"
+        },
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__MS_CRM"
+            },
+            "Name": "ms crm consultant",
+            "Slug__c": "ms-crm-consultant",
+            "Skill__c": "@Skill__CRM",
+            "Radar_Page_Group__c": "@Page_Group__AptMgt"
+        },
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__ExactConsultant"
+            },
+            "Name": "exact consultant",
+            "Slug__c": "exact-consultant",
+            "Skill__c": "@Skill__App_Management",
+            "Radar_Page_Group__c": "@Page_Group__AptMgt"
+        }
+    ]
+}

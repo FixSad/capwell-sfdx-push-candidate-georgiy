@@ -1,0 +1,41 @@
+<template>
+  <lightning-modal-header label="New Tracking"></lightning-modal-header>
+  <lightning-modal-body>
+    <lightning-record-edit-form
+      object-api-name="Task_Wrapper__c"
+      onsubmit={handleSubmit}
+    >
+      <lightning-input-field field-name="Type__c"></lightning-input-field>
+      <lightning-input-field field-name="SubType__c"></lightning-input-field>
+      <lightning-input-field
+        field-name="Description__c"
+      ></lightning-input-field>
+      <lightning-input-field
+        field-name="Account__c"
+        value={whatId}
+        disabled={disabledlAccount}
+      ></lightning-input-field>
+      <lightning-input-field
+        field-name="Contact__c"
+        value={whoId}
+      ></lightning-input-field>
+
+      <lightning-input-field
+        field-name="Follow_up__c"
+        value={isFollowup}
+        onclick={handleFollowup}
+      ></lightning-input-field>
+      <template lwc:if={showFollowup}>
+        <lightning-input-field field-name="DueDate__c"></lightning-input-field>
+        <lightning-input-field
+          field-name="Follow_up_description__c"
+        ></lightning-input-field>
+      </template>
+      <lightning-button
+        class="slds-var-m-top_small"
+        type="submit"
+        label="Save"
+      ></lightning-button>
+    </lightning-record-edit-form>
+  </lightning-modal-body>
+</template>

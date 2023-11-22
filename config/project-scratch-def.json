@@ -1,0 +1,42 @@
+{
+  "orgName": "Capwell company",
+  "edition": "Developer",
+  "release": "Current",
+  "language": "en_US",
+  "features": ["ContactsToMultipleAccounts", "PersonAccounts"],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    },
+    "accountSettings": {
+      "enableRelateContactToMultipleAccounts": true
+    },
+    "enhancedNotesSettings": {
+      "enableEnhancedNotes": true
+    },
+    "quoteSettings": {
+      "enableQuote": true
+    },
+    "campaignSettings": {
+      "enableCampaignInfluence2": true
+    },
+    "partyDataModelSettings": {
+      "enableConsentManagement": true
+    },
+    "securitySettings": {
+      "enableAuditFieldsInactiveOwner": true
+    },
+    "nameSettings": {
+      "enableMiddleName": true,
+      "enableNameSuffix": true
+    }
+  },
+  "objectSettings": {
+    "case": {
+      "sharingModel": "private"
+    }
+  }
+}

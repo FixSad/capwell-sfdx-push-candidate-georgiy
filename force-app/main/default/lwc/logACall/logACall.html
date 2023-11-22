@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title={title}>
+        <lightning-input name="tskSubj" label="Subject" value={tskSubj} onchange={handleEditChange} type="text"></lightning-input>
+        <lightning-textarea name="tskComments" label="Comments" value={tskComments} onchange={handleEditChange}></lightning-textarea>
+        <lightning-input name="tskFollow" value={tskFollow} label="Follow up?" onchange={handleEditChange} type="checkbox"></lightning-input>
+        <lightning-input name="tskFollowDate" value={tskFollowDate} label="Follow up on" onchange={handleEditChange} type="date" if:true={tskFollow}></lightning-input>
+        <lightning-input name="createApplicant" value={isApplicant} label="Create Applicant?" onchange={handleApplicantChange} type="checkbox"></lightning-input>
+        <lightning-combobox value={value} label="Select Status" options={options} onchange={handleApplicantStatus}></lightning-combobox>
+    </lightning-card>
+</template>

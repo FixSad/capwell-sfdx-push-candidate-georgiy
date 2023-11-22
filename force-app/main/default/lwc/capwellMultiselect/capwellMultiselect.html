@@ -1,0 +1,11 @@
+<template>
+    <div class="capwell-multiselect">
+        <template for:each={options} for:item="option" for:index="index">
+            <label for={option.Id} class="capwell-multiselect-option" key={option.Id}>
+                <input id={question.Id} type="checkbox" checked={option.checked} data-target-id={option.value} onchange={handleChange} class="cm-option-checkbox" />
+                <span class="cm-option-number">{option.index}</span>
+                <span class="capwell-multiselect-label">{option.value}</span>
+            </label>    
+        </template>
+    </div>
+</template>

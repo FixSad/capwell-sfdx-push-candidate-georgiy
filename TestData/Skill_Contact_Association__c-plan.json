@@ -1,0 +1,10 @@
+[
+    {
+        "sobject": "Skill_Contact_Association__c",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "Skill_Contact_Association__cs.json"
+        ]
+    }
+]

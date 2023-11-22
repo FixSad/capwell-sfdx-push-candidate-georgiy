@@ -1,0 +1,21 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP"
+      },
+      "Name": "SAP",
+      "Parent__c": "@Skill__ERP",
+      "LegacySkillId__C": 236
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_DYNAMICS"
+      },
+      "Name": "Dynamics",
+      "Parent__c": "@Skill__ERP"
+    }
+  ]
+}

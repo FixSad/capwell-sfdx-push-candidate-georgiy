@@ -1,0 +1,64 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__DWHDEVELOPER"
+            },
+            "Name": "dwh developer",
+            "Slug__c": "dwh-developer",
+            "Skill__c": "@Skill__Database",
+            "Radar_Page_Group__c": "@Page_Group__DBA"
+        },
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__SQLDeveloper"
+            },
+            "Name": "SQL dba developer",
+            "Slug__c": "SQL-dba-developer",
+            "Skill__c": "@Skill__Database",
+            "Radar_Page_Group__c": "@Page_Group__DBA"
+        },
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__IA"
+            },
+            "Name": "informatie analist",
+            "Slug__c": "informatie-analist",
+            "Skill__c": "@Skill__Database",
+            "Radar_Page_Group__c": "@Page_Group__DBA"
+        },
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__BI"
+            },
+            "Name": "business analist",
+            "Slug__c": "business-analist",
+            "Skill__c": "@Skill__BI",
+            "Radar_Page_Group__c": "@Page_Group__DBA"
+        },
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__DA"
+            },
+            "Name": "data architect",
+            "Slug__c": "data-architect",
+            "Skill__c": "@Skill__Database",
+            "Radar_Page_Group__c": "@Page_Group__DBA"
+        },
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__DMD"
+            },
+            "Name": "data migratie developer",
+            "Slug__c": "data-migratie-developer",
+            "Skill__c": "@Skill__Database",
+            "Radar_Page_Group__c": "@Page_Group__DBA"
+        }
+    ]
+}

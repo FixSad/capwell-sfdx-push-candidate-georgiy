@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Slug__c</fullName>
+    <externalId>false</externalId>
+    <formula>CAP_Number__c+&quot;-&quot;+IF(ISBLANK(Custom_Slug__c), SUBSTITUTE( Name , &quot; &quot;, &quot;_&quot;), Custom_Slug__c)</formula>
+    <label>Slug</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

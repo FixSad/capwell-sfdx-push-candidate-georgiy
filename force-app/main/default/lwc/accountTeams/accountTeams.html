@@ -1,0 +1,85 @@
+<template>
+  <lightning-card title="Teams and Contacts">
+    <lightning-button
+      label="New Team"
+      slot="actions"
+      onclick={handleNewClick}
+    ></lightning-button>
+    <lightning-button
+      label="New Contact"
+      slot="actions"
+      onclick={handleNewContact}
+    ></lightning-button>
+    <lightning-tree-grid
+      style="font-size: 10px"
+      columns={columns}
+      data={data}
+      key-field="id"
+      onrowaction={handleRowAction}
+      hide-checkbox-column="true"
+    ></lightning-tree-grid>
+  </lightning-card>
+
+  <template if:true={isModalOpen}>
+    <section
+      role="dialog"
+      tabindex="-1"
+      aria-labelledby="modal-heading-01"
+      aria-modal="true"
+      aria-describedby="modal-content-id-1"
+      class="slds-modal slds-fade-in-open"
+    >
+      <div class="slds-modal__container">
+        <header class="slds-modal__header">
+          <h2
+            id="modal-heading-01"
+            class="slds-text-heading_medium slds-hyphenate"
+          >
+            Add New Team
+          </h2>
+        </header>
+        <div
+          class="slds-modal__content slds-p-around_medium"
+          id="modal-content-id-1"
+        >
+          <div class="slds-m-around_medium">
+            <template if:true={actionNew}>
+              <lightning-input
+                label="Name"
+                onchange={handleNameChange}
+              ></lightning-input>
+            </template>
+            <template if:true={actionAssign}>
+              <lightning-combobox
+                name="Team"
+                label="Select Team"
+                placeholder="Select Team"
+                value={selectedTeam}
+                onchange={handleTeamChange}
+                options={teamOptions}
+              >
+              </lightning-combobox>
+            </template>
+          </div>
+        </div>
+        <footer class="slds-modal__footer">
+          <button
+            class="slds-button slds-button_neutral"
+            onclick={closeModal}
+            title="Cancel"
+          >
+            Cancel
+          </button>
+          <button
+            class="slds-button slds-button_brand"
+            onclick={submitDetails}
+            title="OK"
+          >
+            OK
+          </button>
+        </footer>
+      </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+</template>

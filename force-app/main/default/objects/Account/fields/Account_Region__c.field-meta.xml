@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Region__c</fullName>
+    <externalId>false</externalId>
+    <label>Account Region</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ZH</fullName>
+                <default>false</default>
+                <label>Zuid Holland</label>
+            </value>
+            <value>
+                <fullName>NH</fullName>
+                <default>false</default>
+                <label>Noord Holland</label>
+            </value>
+            <value>
+                <fullName>UT</fullName>
+                <default>false</default>
+                <label>Utrecht</label>
+            </value>
+            <value>
+                <fullName>NB</fullName>
+                <default>false</default>
+                <label>Noord Brabant</label>
+            </value>
+            <value>
+                <fullName>GE</fullName>
+                <default>false</default>
+                <label>Gelderland</label>
+            </value>
+            <value>
+                <fullName>ZE</fullName>
+                <default>false</default>
+                <label>Zeeland</label>
+            </value>
+            <value>
+                <fullName>LB</fullName>
+                <default>false</default>
+                <label>Limboland</label>
+            </value>
+            <value>
+                <fullName>GR</fullName>
+                <default>false</default>
+                <label>Groningen / Friesland</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

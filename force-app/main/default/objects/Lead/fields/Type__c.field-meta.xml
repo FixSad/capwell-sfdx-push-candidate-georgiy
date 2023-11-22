@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Zoekprofiel doorgeven</fullName>
+                <default>false</default>
+                <label>Zoekprofiel doorgeven</label>
+            </value>
+            <value>
+                <fullName>Uurtarief opvragen</fullName>
+                <default>false</default>
+                <label>Uurtarief opvragen</label>
+            </value>
+            <value>
+                <fullName>Beschikbaarheid aanvragen</fullName>
+                <default>false</default>
+                <label>Beschikbaarheid aanvragen</label>
+            </value>
+            <value>
+                <fullName>Freelance opdrachten</fullName>
+                <default>false</default>
+                <label>Freelance opdrachten</label>
+            </value>
+            <value>
+                <fullName>Vacatures</fullName>
+                <default>false</default>
+                <label>Vacatures</label>
+            </value>
+            <value>
+                <fullName>Freelance en Vacatures</fullName>
+                <default>false</default>
+                <label>Freelance en Vacatures</label>
+            </value>
+            <value>
+                <fullName>Terugbelverzoek</fullName>
+                <default>false</default>
+                <label>Terugbelverzoek</label>
+            </value>
+            <value>
+                <fullName>Vrijblijvende Offerte</fullName>
+                <default>false</default>
+                <label>Vrijblijvende Offerte</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

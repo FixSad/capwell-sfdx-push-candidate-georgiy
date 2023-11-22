@@ -1,0 +1,136 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__dotNET_CSharp"
+      },
+      "Name": "C#",
+      "Alias__c": "c-sharp",
+      "Parent__c": "@Skill__dotNET",
+      "LegacySkillId__C": 523
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__dotNET_ASPNET"
+      },
+      "Name": "ASP.NET",
+      "Alias__c": "aspnet core",
+      "Parent__c": "@Skill__dotNET",
+      "LegacySkillId__C": 351
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__dotNET_NETCORE"
+      },
+      "Name": ".NET Core",
+      "Alias__c": "dotnet core",
+      "Parent__c": "@Skill__dotNET",
+      "LegacySkillId__C": 524
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__dotNET_VBNET"
+      },
+      "Name": "VB.NET",
+      "Alias__c": "Visual Basic",
+      "Parent__c": "@Skill__dotNET",
+      "LegacySkillId__C": 141
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__dotNET_Xamarin"
+      },
+      "Name": "Xamarin",
+      "Alias__c": "Mono",
+      "Parent__c": "@Skill__dotNET",
+      "LegacySkillId__C": 344
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__dotNET_EF"
+      },
+      "Name": "Entity Framework",
+      "Alias__c": "ef",
+      "Parent__c": "@Skill__dotNET",
+      "LegacySkillId__C": 345
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__dotNET_EPIServer"
+      },
+      "Name": "Episerver",
+      "Parent__c": "@Skill__dotNET",
+      "LegacySkillId__C": 337
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__dotNET_Sitecore"
+      },
+      "Name": "Sitecore",
+      "Parent__c": "@Skill__dotNET",
+      "LegacySkillId__C": 336
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__dotNET_Umbraco"
+      },
+      "Name": "Umbraco",
+      "Parent__c": "@Skill__dotNET",
+      "LegacySkillId__C": 335
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__dotNET_Azure"
+      },
+      "Name": "Azure",
+      "Parent__c": "@Skill__dotNET",
+      "LegacySkillId__C": 352
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__dotNET_Sharepoint"
+      },
+      "Name": "Sharepoint",
+      "Parent__c": "@Skill__dotNET",
+      "LegacySkillId__C": 201
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__dotNET_SSAS"
+      },
+      "Name": "SSAS",
+      "Parent__c": "@Skill__dotNET",
+      "LegacySkillId__C": 301
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__dotNET_SSIS"
+      },
+      "Name": "SSIS",
+      "Parent__c": "@Skill__dotNET",
+      "LegacySkillId__C": 300
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__dotNET_SSRS"
+      },
+      "Name": "SSRS",
+      "Parent__c": "@Skill__dotNET",
+      "LegacySkillId__C": 302
+    }
+  ]
+}

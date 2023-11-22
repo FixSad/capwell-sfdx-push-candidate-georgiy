@@ -1,0 +1,37 @@
+<template>
+  <lightning-card>
+    <div class="slds-grid">
+      <div class="slds-col slds-size_1-of-1">
+        <div>
+          <lightning-radio-group
+            name="statusFilter"
+            label="Statuses"
+            options={options}
+            value={statusFilterValue}
+            type="button"
+            onchange={handleStatusFilter}
+          >
+          </lightning-radio-group>
+          <div class="slds-var-p-around_small">Total Records: {getTotal}</div>
+        </div>
+        <div>
+          <template if:false={loaded}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+          </template>
+          <template if:true={loaded}>
+            <template if:true={hasResults}>
+              <lightning-datatable
+                key-field="Id"
+                data={results}
+                columns={columns}
+                hide-checkbox-column
+                onrowaction={handleRowAction}
+              >
+              </lightning-datatable>
+            </template>
+          </template>
+        </div>
+      </div>
+    </div>
+  </lightning-card>
+</template>

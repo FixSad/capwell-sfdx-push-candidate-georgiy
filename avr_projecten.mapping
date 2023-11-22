@@ -1,0 +1,46 @@
+avr_projecten
+    `id` -> LegacyId
+    `inkoop_person_id` -> Placement.LegacyManagerId -> Project.LegacyManagerId
+    `inkoop_company_id` -> Placement.LegacyAccountId -> Project.LegacyAccountId
+    `verkoop_person_id` -> Placement.LegacyContactId -> Project_Placement.ContactId
+    `verkoop_company_id` -> Placement.LegacyContactAccountId ?
+    `verkoop_facturatie_company_id` -> Placement.LegacyAccountId
+    `recruiter_id` -> Placement.OwnerId
+    `aanvraag_id` -> Placement.LegacyJobId
+    `assigned_date` -> Placement.Start_Date
+    `invoicing_methode` -> Placement.Billing_Period -> Project.Billing_Period
+    `factuur_email` -> Placement.Invoice_ContactId.Email
+    `factuur_cc_email` -> ? + 
+    `status` -> Placement.Status
+    `inkoop_tarief` -> Placement.Client_Rate
+    `verkoop_tarief` -> Placement.Candidate_Rate
+    `verkoopKorting_tarief` -> ? +
+    `verkoop_korting_check` -> ? +
+    `project_functie` -> Placement.Title
+    `project_omschrijving` -> Project.Description -> Placement.Description
+    `freelancer_type_inhuurovereenkomst` -> ? Agreement +
+    `klant_type_inhuurovereenkomst` -> ? Agreement +
+    `contract_soort` (‘0=vaste periode, 1=projectdoel’) ->? +
+    `contract_periode_indicatie` -> ? +
+    `contract_opzegtermijn` -> ? ?
+    `contract_opzegtermijn_periode` -> ? ?
+    `contract_opzegtermijn_periode_per` -> ? ?
+    `contract_startdatum` -> Placement.Start_Date
+    `contract_einddatum` Placement.End_Date
+    `contract_inzet_aantal` -> ?
+    `contract_inzet_per` -> ?
+    `contract_proeftijd` -> ?
+    `contract_proeftijd_periode` -> ?
+    `contract_proeftijd_per` -> ?
+    `contract_extra_toelichting` -> ? +
+    `contract_extra_toelichting_text` -> ? +
+    `contract_betaaltermijn_freelancer` -> ? / Placement.Billing_Period
+    `contract_betaaltermijn_freelancer_periode` -> ? Placement.Billing_Period
+    `contract_betaaltermijn_freelancer_korting` -> ? +
+    `contract_betaaltermijn_klant` -> ? +
+    `is_custom_vat` -> ? +
+    `custom_vat_client` -> ? +
+    `custom_vat_freelance` -> ? +
+    `is_publish_to_portal` Placement.LegacyJobId.Publish__c
+    `created` -> Placement.CreatedById / Project.CreatedById
+    `modified` -> Placement.ModifyedById / Project.ModifyedById

@@ -1,0 +1,31 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__CRM_Sugar"
+      },
+      "Name": "Sugar CRM",
+      "Parent__c": "@Skill__CRM",
+      "LegacySkillId__C": 310
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP"
+      },
+      "Name": "SAP CRM",
+      "Parent__c": "@Skill__CRM",
+      "LegacySkillId__C": 363
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__CRM_Salesforce"
+      },
+      "Name": "Salesforce",
+      "Parent__c": "@Skill__CRM",
+      "LegacySkillId__C": 487
+    }
+  ]
+}

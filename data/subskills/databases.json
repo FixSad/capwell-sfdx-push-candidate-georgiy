@@ -1,0 +1,59 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Database_MYSQL"
+      },
+      "Name": "MySQL",
+      "Parent__c": "@Skill__Database",
+      "LegacySkillId__C": 103
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Database_MSSQL"
+      },
+      "Name": "MSSQL",
+      "Alias__C": "Microsoft SQL Server",
+      "Parent__c": "@Skill__Database",
+      "LegacySkillId__C": 107
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Database_MongoDB"
+      },
+      "Name": "MongoDB",
+      "Parent__c": "@Skill__Database",
+      "LegacySkillId__C": 348
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Database_NOSQL"
+      },
+      "Name": "NoSQL",
+      "Parent__c": "@Skill__Database",
+      "LegacySkillId__C": 347
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Database_Oracle"
+      },
+      "Name": "OracleSQL",
+      "Parent__c": "@Skill__Database",
+      "LegacySkillId__C": 104
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Database_PostgreSQL"
+      },
+      "Name": "PostgreSQL",
+      "Parent__c": "@Skill__Database",
+      "LegacySkillId__C": 349
+    }
+  ]
+}

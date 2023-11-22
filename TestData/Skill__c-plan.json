@@ -1,0 +1,10 @@
+[
+    {
+        "sobject": "Skill__c",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "Skill__cs.json"
+        ]
+    }
+]

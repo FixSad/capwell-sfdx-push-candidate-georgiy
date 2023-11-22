@@ -1,0 +1,87 @@
+<template>
+    <lightning-card>
+        <div class="slds-grid">
+            <div class="slds-col">
+                <h3 slot="title">
+                    <img src={capwellIcon} alt="lampIcon" class="recruitmentIcon">Clients with Any of Skills
+                </h3>
+                <c-skill-selector onselected={handleSelectSkill}></c-skill-selector>
+                <div class="slds-listbox_selection-group" style="height:auto;padding-right:5px;overflow: initial;" if:true={hasSkillsSelected}>
+                    <ul class="slds-listbox slds-listbox_horizontal" role="listbox" aria-label="Selected Options:" aria-orientation="horizontal">
+                        <template for:each={selectedSkills} for:item="skill">
+                            <li class="slds-listbox-item" role="presentation" key={skill.id}>
+                                <span class="slds-pill" role="option" tabindex="0" aria-selected="true">
+                                    <span class="slds-icon_container slds-icon-standard-account slds-pill__icon_container">
+                                        <lightning-icon icon-name="standard:account"></lightning-icon>
+                                    </span>
+                                    <span class="slds-pill__label" title={skill.name}>{skill.name}</span>
+                                    <span class="slds-icon_container slds-pill__remove" title="Remove" data-id={skill.id} onclick={handleSkillRemove}>
+                                        <lightning-icon icon-name="utility:close" alternative-text="close"></lightning-icon>
+                                    </span>
+                                </span>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+                <div>
+                    <lightning-combobox 
+                        label="Region"
+                        options={regions}
+                        onchange={handleRegionChange}
+                        value={selectedRegion}>
+                    </lightning-combobox>
+                </div>
+                <div>
+                    <c-market-selector select-type='check' onmarketsselected={handleSelectMarkets}></c-market-selector>
+                    <template if:false={marketsSelected}>
+                        All Markets
+                    </template>
+                    <template if:true={marketsSelected}>
+                        <div class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox">
+							<ul class="slds-listbox slds-listbox_horizontal" role="listbox" aria-label="Selected Markets:" aria-orientation="horizontal">
+                                <template for:each={markets} for:item="market">
+                                    <li class="slds-listbox-item" role="presentation" key={market.id} >
+                                        <span class="slds-pill" role="option" tabindex="0" aria-selected="true" key={market.id}>
+                                            <span class="slds-icon_container slds-icon-standard-account slds-pill__icon_container">
+                                                <lightning-icon icon-name="standard:account"></lightning-icon>
+                                            </span>
+                                            <span class="slds-pill__label" title={market.name}>{market.name}</span>
+                                            <!-- span class="slds-icon_container slds-pill__remove" title="Remove" data-id={market.id} onclick={handleMarketRemove}>
+                                                <lightning-icon icon-name="utility:close" alternative-text="close"></lightning-icon>
+                                            </span -->
+                                        </span>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+        <div class="slds-grid">
+            <lightning-input type="toggle" label="Using Location" name="usingLocation" value={usingLocation} onchange={handleLocation}></lightning-input>
+            <template if:true={usingLocation}>
+                <lightning-input type="text" label="Location" name="location" value={location} disabled></lightning-input>
+                <lightning-slider label="Radius (km)" value={radius} name="radius" onchange={handleValueChange} max="500"></lightning-slider>
+            </template>
+        </div>
+        <div class="slds-grid">
+            <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+        </div>
+        <template if:true={hasResults}>
+            <div class="slds-var-p-around_medium lgc-bg">
+                <lightning-tree-grid
+                    style="font-size: 10px;"
+                    columns={resultGridColumns}
+                    data={searchResults}
+                    key-field="id"
+                    min-column-width="150"
+                    max-column-width="200"
+                ></lightning-tree-grid>
+            </div>
+            <div>
+                <lightning-button label="Add to Mailshot" onclick={handleAdd}></lightning-button>
+            </div>
+        </template>
+    </lightning-card>
+</template>

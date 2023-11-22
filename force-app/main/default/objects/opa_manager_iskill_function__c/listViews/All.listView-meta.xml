@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>LegacyOpaID_Person__c</columns>
+    <columns>LegacyOpaID_Company__c</columns>
+    <columns>CompanyName__c</columns>
+    <columns>Account_Function_c__c</columns>
+    <columns>iskill__c</columns>
+    <columns>iskill_id__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>iskill_id__c</field>
+        <operation>equals</operation>
+        <value>273</value>
+    </filters>
+    <label>All Records</label>
+</ListView>

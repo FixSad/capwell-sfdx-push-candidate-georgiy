@@ -1,0 +1,40 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Legacy_VB6"
+      },
+      "Name": "VB6",
+      "Parent__c": "@Skill__Legacy",
+      "LegacySkillId__C": 175
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Legacy_Cobol"
+      },
+      "Name": "Cobol",
+      "Parent__c": "@Skill__Legacy",
+      "LegacySkillId__C": 146
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Legacy_RPG"
+      },
+      "Name": "RPG / AS400",
+      "Parent__c": "@Skill__Legacy",
+      "LegacySkillId__C": 273
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Legacy_Perl"
+      },
+      "Name": "Perl",
+      "Parent__c": "@Skill__Legacy",
+      "LegacySkillId__C": 171
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+<template>
+    <div class="slds-grid">
+        <div class="slds-col slds-grow-none slds-theme_shade slds-p-top_xx-small slds-p-horizontal_xxx-small">
+            <b class="week">Wk {weekNumber}</b> 
+        </div>
+        <div class="slds-col">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered slds-table_fixed-layout">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <template for:each={columns} for:item="column">
+                            <th scope="col" key={uniqueId}>
+                                <div class="slds-truncate" title={column}>
+                                    {column}
+                                </div>
+                            </th>
+                        </template>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="slds-line-height_reset">
+                        <template for:each={cells} for:item="cell">
+                            <th scope="col" key={uniqueId}>
+                                <template for:each={cell} for:item="interview">
+                                    <ul key={uniqueId} class="slds-p-top_xx-small">
+                                        <li>
+                                            <lightning-formatted-url value={interview.Id} label={interview.Name}
+                                                                    target="_blank" class="slds-text-align_left">
+                                            </lightning-formatted-url>
+                                        </li>
+                                        <li>
+                                            {interview.CandidateName} with {interview.ClientName} for {interview.JobName}
+                                        </li>
+                                    </ul>
+                                </template>
+                            </th>
+                        </template>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>

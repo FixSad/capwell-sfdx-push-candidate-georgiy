@@ -1,0 +1,33 @@
+<html><head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">
+<p>Beste {{{Recipient.Name}}}!</p>
+&nbsp;
+
+<p>Voor een klant van ons ben ik opzoek naar een {{{Opportunity.Name}}} die hen kan een klant van ons te helpen.</p>
+
+<p>&nbsp;</p>
+
+<p>Naast ervaring met {{{Opportunity.Name}}} is het belangrijk dat je beschikt over sterke communicatieve vaardigheden, bekend bent met de waterval methode en gevoel hebt voor user experience.</p>
+
+<p>Is dit iets voor jou? Dan kom ik graag met je in contact!<br />
+<br />
+For more information, please check job details page: {{{Opportunity.adURL__c}}}</p>
+
+<p>Met vriendelijke groet, {{{Sender.Name}}}</p>
+
+<p><br />
+Capwell B.V.</p>
+
+<p>Havenstaat 30</p>
+
+<p>3115 HD Schiedam</p>
+
+<p>T&nbsp;&nbsp;+31 (0)10&nbsp;475&nbsp;55&nbsp;83</p>
+
+<p>I&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.capwell.nl/" target="_blank">http://www.capwell.nl</a></p>
+
+<p>----------- Capwell - elements for ICT success -----------</p>
+
+</body></html>

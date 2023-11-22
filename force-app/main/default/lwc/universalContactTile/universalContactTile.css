@@ -1,0 +1,12 @@
+.size{
+    height: 200px;
+    width: 370px;
+}
+.contact-name{
+    font-weight: bold;
+    font-size: medium;
+}
+.account-name{
+    color: rgb(1, 118, 211);
+    font-weight: 600;
+}

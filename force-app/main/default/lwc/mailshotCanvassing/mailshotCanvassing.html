@@ -1,0 +1,84 @@
+<template>
+  <div class="slds-grid">
+    <div class="slds-col slds-size_1-of-3 slds-var-p-around_small">
+      <lightning-card title="Candidate">
+        <lightning-record-edit-form
+          record-id={candidateId}
+          object-api-name="Contact"
+          onsuccess={handleSuccess}
+        >
+          <div class="slds-box">
+            <lightning-output-field field-name="Name"></lightning-output-field>
+            <lightning-input-field field-name="Title"></lightning-input-field>
+            <lightning-input-field field-name="Email"></lightning-input-field>
+            <lightning-input-field field-name="Phone"></lightning-input-field>
+            <lightning-input-field
+              field-name="MailingCity"
+            ></lightning-input-field>
+            <lightning-input-field
+              field-name="MailingPostalCode"
+            ></lightning-input-field>
+            <lightning-input-field
+              field-name="isBlocked__c"
+            ></lightning-input-field>
+            <lightning-input-field
+              field-name="HasOptedOutOfEmail"
+            ></lightning-input-field>
+          </div>
+        </lightning-record-edit-form>
+      </lightning-card>
+    </div>
+    <div class="slds-col slds-size_1-of-3 slds-var-p-around_small">
+      <c-log-a-call
+        what-id={mailshot}
+        who-id={candidateId}
+        tsk-subj="Canvasing Call"
+        title="Log Canvassing Call"
+      ></c-log-a-call>
+    </div>
+    <div class="slds-col slds-size_1-of-3 slds-var-p-around_small">
+      <c-object-activities what-or-who-id={candidateId}></c-object-activities>
+    </div>
+  </div>
+  <lightning-card title="Expertise">
+    <div class="slds-grid">
+      <div class="slds-col slds-size_1-of-3 slds-var-p-around_small">
+        <c-skill-association
+          record-id={candidateId}
+          object-api-name="Contact"
+          skill-type="Primary"
+        ></c-skill-association>
+      </div>
+      <div class="slds-col slds-size_1-of-3 slds-var-p-around_small">
+        <c-skill-association
+          record-id={candidateId}
+          object-api-name="Contact"
+          skill-type="Secondary"
+        ></c-skill-association>
+      </div>
+      <div class="slds-col slds-size_1-of-3 slds-var-p-around_small">
+        <c-skill-association
+          record-id={candidateId}
+          object-api-name="Contact"
+          skill-type="Interested"
+        ></c-skill-association>
+      </div>
+    </div>
+  </lightning-card>
+  <div class="slds-grid">
+    <div class="slds-col slds-size_1-of-1 slds-var-p-around_small">
+      <lightning-card title="Accounts">
+        <c-contact-accounts contact-id={candidateId}></c-contact-accounts>
+      </lightning-card>
+    </div>
+  </div>
+  <div slot="footer">
+    <lightning-button
+      label="Cancel"
+      class="capwell-cancelButton"
+    ></lightning-button>
+    <lightning-button label="Save" onclick={handleSave}></lightning-button>
+    <lightning-button label="Save & Next" disabled="true"></lightning-button>
+    <!-- TO-DO -->
+  </div>
+</template>

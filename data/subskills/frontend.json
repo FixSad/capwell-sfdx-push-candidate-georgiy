@@ -1,0 +1,33 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__HTML"
+      },
+      "Name": "HTML/CSS",
+      "Alias__c": "SCSS, SASS, LESS, HTML5",
+      "Parent__c": "@Skill__Frontend",
+      "LegacySkillId__C": 319
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__UX"
+      },
+      "Name": "UX/UI",
+      "Parent__c": "@Skill__Frontend",
+      "LegacySkillId__C": 495
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__JS"
+      },
+      "Name": "Javascript",
+      "Alias__c": "JS, EcmaScript, ES5, ES6, ES7",
+      "Parent__c": "@Skill__Frontend",
+      "LegacySkillId__C": 288
+    }
+  ]
+}

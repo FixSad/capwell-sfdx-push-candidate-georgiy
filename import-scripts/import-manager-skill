@@ -1,0 +1,83 @@
+// Map Skills
+List<opa_manager_iskill_function__c> skills = [SELECT Id, iskill_id__c, Skill__c, ErrorMessage__c, isProcessed__c FROM opa_manager_iskill_function__c WHERE isProcessed__c = false LIMIT 500];
+List<Skill__c> skillList = [SELECT Id, LegacySkillId__c FROM Skill__c];
+for (opa_manager_iskill_function__c tmpRec : skills) {
+    Boolean isFound = false;
+    for (Skill__c tmpSkill : skillList) {
+        if (tmpRec.iskill_id__c == tmpSkill.LegacySkillId__c) {
+            isFound = true;
+            tmpRec.Skill__c = tmpSkill.Id;
+            break;
+        }
+    }
+    tmpRec.isProcessed__c = true;
+    tmpRec.ErrorMessage__c = isFound ? null : 'Skill Not Found';
+}
+update skills;
+
+//Map Contacts
+List<opa_manager_iskill_function__c> skills = [SELECT Id, LegacyOpaID_Person__c, Contact__c, ErrorMessage__c, isProcessed__c FROM opa_manager_iskill_function__c WHERE isProcessed__c = false LIMIT 500];
+Set<String> contIds = new Set<String>();
+for (opa_manager_iskill_function__c tmpRec : skills) {
+    if (String.isNotBlank(tmpRec.LegacyOpaID_Person__c)) {
+        contIds.add(tmpRec.LegacyOpaID_Person__c);
+    }
+}
+List<Contact> contList = [SELECT Id, LegacyOpaID__c FROM Contact WHERE LegacyOpaID__c IN :contIds];
+for (opa_manager_iskill_function__c tmpRec : skills) {
+    Boolean isFound = false;
+    for (Contact tmpCont : contList) {
+        if (tmpRec.LegacyOpaID_Person__c == tmpCont.LegacyOpaID__c) {
+            isFound = true;
+            tmpRec.Contact__c = tmpCont.Id;
+            break;
+        }
+    }
+    tmpRec.isProcessed__c = true;
+    tmpRec.ErrorMessage__c = isFound ? tmpRec.ErrorMessage__c : tmpRec.ErrorMessage__c + ' - Contact Not Found';
+}
+update skills;
+
+//Map Account
+List<opa_manager_iskill_function__c> skills = [SELECT Id, LegacyOpaID_Company__c, Account__c, ErrorMessage__c, isProcessed__c FROM opa_manager_iskill_function__c WHERE isProcessed__c = false LIMIT 500];
+Set<String> accIds = new Set<String>();
+for (opa_manager_iskill_function__c tmpRec : skills) {
+    if (String.isNotBlank(tmpRec.LegacyOpaID_Company__c)) {
+        accIds.add(tmpRec.LegacyOpaID_Company__c);
+    }
+}
+List<Account> accList = [SELECT Id, LegacyOpaID__c FROM Account WHERE LegacyOpaID__c IN :accIds];
+for (opa_manager_iskill_function__c tmpRec : skills) {
+    Boolean isFound = false;
+    for (Account tmpAcc : accList) {
+        if (tmpRec.LegacyOpaID_Company__c == tmpAcc.LegacyOpaID__c) {
+            isFound = true;
+            tmpRec.Account__c = tmpAcc.Id;
+            break;
+        }
+    }
+    tmpRec.isProcessed__c = true;
+    tmpRec.ErrorMessage__c = isFound ? tmpRec.ErrorMessage__c : tmpRec.ErrorMessage__c + ' - Account Not Found';
+}
+update skills;
+
+//Migrate Skills
+List<opa_manager_iskill_function__c> skills = [SELECT Id, Account__c, Contact__c, isProcessed__c, iskill_id__c, LegacyOpaID_Person__c, Skill__c FROM opa_manager_iskill_function__c WHERE isProcessed__c = false limit 500];
+List<Skill_Association__c> newSkills = new List<Skill_Association__c>();
+for (opa_manager_iskill_function__c tmpRec : skills) {
+    if (String.isNotBlank(tmpRec.Account__c) && String.isNotBlank(tmpRec.Contact__c) && String.isNotBlank(tmpRec.Skill__c)) {
+        Skill_Association__c newSkill = new Skill_Association__c();
+        newSkill.Account__c = tmpRec.Account__c;
+        newSkill.Contact__c = tmpRec.Contact__c;
+        newSkill.isActive__c = true;
+        newSkill.LegacySkillID__c = tmpRec.iskill_id__c;
+        newSkill.LegacyObjectID__c = tmpRec.LegacyOpaID_Person__c;
+        newSkill.OpaObjectName__c = 'manager_skill';
+        newSkill.Skill__c = tmpRec.Skill__c;
+        newSkill.Type__c = 'Primary';
+        newSkills.add(newSkill);
+        tmpRec.isProcessed__c = true;
+    }
+}
+insert newSkills;
+update skills;

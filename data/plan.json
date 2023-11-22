@@ -1,0 +1,146 @@
+[
+  {
+      "sobject": "Skill__c",
+      "saveRefs": true,
+      "resolveRefs": false,
+      "files": ["main-skills.json"]
+  },
+  {
+    "sobject": "Page_Group__c",
+    "saveRefs": true,
+    "resolveRefs": false,
+    "files": ["groups.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/dotnet.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/mssql.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/php.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": true,
+    "resolveRefs": true,
+    "files": ["subskills/frontend.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/javascript.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/mobile.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/embedded.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/legacy.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/databases.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/bi.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/architecture.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/tester.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": true,
+    "resolveRefs": true,
+    "files": ["subskills/erp.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/sap.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/dynamics.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/crm.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/appmgt.json"]
+  },
+  {
+    "sobject": "Skill__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["subskills/itmgt.json"]
+  },
+  {
+    "sobject": "Radar_Page__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["pages/development.json"]
+  },
+  {
+    "sobject": "Radar_Page__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["pages/dba.json"]
+  },
+  {
+    "sobject": "Radar_Page__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["pages/appmgt.json"]
+  },
+  {
+    "sobject": "Radar_Page__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["pages/legacy.json"]
+  }
+]

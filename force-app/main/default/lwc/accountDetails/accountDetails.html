@@ -1,0 +1,67 @@
+<template>
+  <lightning-spinner
+    if:false={showEditForm}
+    alternative-text="Loading"
+    size="medium"
+  ></lightning-spinner>
+  <div
+    if:true={showEditForm}
+    class="slds-box slds-grid slds-grid_vertical-align-start slds-wrap slds-theme_default"
+  >
+    <div class="slds-col slds-size_12-of-12">
+      <lightning-record-edit-form
+        object-api-name="Account"
+        record-id={currentAccId}
+        onerror={handleError}
+      >
+        <lightning-messages> </lightning-messages>
+        <template for:each={fieldsMap} for:item="field">
+          <lightning-input-field
+            key={field.fieldName}
+            field-name={field.fieldName}
+            value={field.fieldValue}
+          ></lightning-input-field>
+        </template>
+        <div class="slds-float_right slds-p-top_medium">
+          <lightning-button
+            variant="neutral"
+            label="Prev"
+            onclick={handlePrev}
+            disabled={disabledPrev}
+          >
+          </lightning-button>
+          <lightning-button
+            variant="brand"
+            class="slds-m-left_x-small"
+            onclick={handleSave}
+            label="Save"
+          >
+          </lightning-button>
+          <lightning-button
+            variant="neutral"
+            class="slds-m-left_x-small"
+            onclick={handleNext}
+            label="Next"
+            disabled={disabledNext}
+          >
+          </lightning-button>
+        </div>
+      </lightning-record-edit-form>
+    </div>
+    <div class="slds-col slds-size_12-of-12">
+      <c-log-a-call
+        what-id={currentAccId}
+        tsk-subj="Log a Call"
+        title="Log a Call"
+        onsavecall={handleSaveCall}
+      ></c-log-a-call>
+    </div>
+    <div class="slds-col slds-size_12-of-12 slds-var-p-top_medium">
+      <lightning-card title="Activities">
+        <c-object-activities
+          what-or-who-id={currentAccId}
+        ></c-object-activities>
+      </lightning-card>
+    </div>
+  </div>
+</template>

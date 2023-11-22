@@ -1,0 +1,58 @@
+<template>
+  <lightning-card>
+    <div class="slds-grid slds-gutters slds-var-m-around_x-small">
+      <div class="slds-col slds-size_1-of-6">
+        <lightning-vertical-navigation
+          onselect={handleSelect}
+          selected-item={selectedItem}
+        >
+          <lightning-vertical-navigation-section label="Canvasing List">
+            <template lwc:if={accounts}>
+              <template for:each={accounts} for:item="clientItem">
+                <lightning-vertical-navigation-item-badge
+                  key={clientItem.Id}
+                  label={clientItem.Name}
+                  name={clientItem.Id}
+                >
+                </lightning-vertical-navigation-item-badge>
+              </template>
+            </template>
+          </lightning-vertical-navigation-section>
+        </lightning-vertical-navigation>
+      </div>
+      <div class="slds-col slds-size_5-of-6">
+        <lightning-card title="Account Information">
+          <div>
+            <lightning-button
+              label="Prev"
+              onclick={handlePrev}
+            ></lightning-button>
+            <lightning-button
+              label="Next"
+              onclick={handleNext}
+            ></lightning-button>
+          </div>
+          <div lwc:if={selectedItem}>
+            <div>
+              <lightning-record-form
+                object-api-name="Account"
+                record-id={selectedItem}
+                density="compact"
+                layout-type="Compact"
+              >
+              </lightning-record-form>
+            </div>
+            <div>
+              <c-account-teams record-id={selectedItem}></c-account-teams>
+            </div>
+            <div>
+              <c-object-activities
+                what-or-who-id={selectedItem}
+              ></c-object-activities>
+            </div>
+          </div>
+        </lightning-card>
+      </div>
+    </div>
+  </lightning-card>
+</template>

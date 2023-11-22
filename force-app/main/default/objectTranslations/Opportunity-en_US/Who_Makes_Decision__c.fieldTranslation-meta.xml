@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Who Makes Decision --></label>
+    <name>Who_Makes_Decision__c</name>
+</CustomFieldTranslation>

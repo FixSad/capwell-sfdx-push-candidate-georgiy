@@ -1,0 +1,4 @@
+.recruitmentIcon {
+    width: var(--lwc-squareIconXSmallBoundary, 1.25rem);
+    margin-right: 5px;
+  }

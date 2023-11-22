@@ -1,0 +1,39 @@
+<template>
+    <div class="size slds-grid slds-wrap slds-box">
+        <div class="slds-col slds-size_3-of-12">
+            <div if:true={withoutAvatar}>
+                <lightning-icon icon-name="standard:avatar" alternative-text="Connected" size="large"></lightning-icon>
+            </div>
+            <div class="avatar"></div>
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+            <lightning-formatted-url value={contactLink}
+                                    label={name}
+                                    class="contact-name"
+                                    target="_blank">
+            </lightning-formatted-url>
+            <br> {title}
+            <br> 
+            <div class="account-name"> {accName} </div>
+        </div>
+        <div class="slds-col slds-size_3-of-12">
+            <div id="size" class="slds-text-heading_small slds-p-right_small slds-p-top_small">
+                <lightning-icon icon-name="custom:custom22" alternative-text="Phone" size="small"></lightning-icon>
+                <lightning-icon icon-name="standard:email" alternative-text="Email" size="small"></lightning-icon>
+                <lightning-icon icon-name="standard:global_constant" alternative-text="Networks" size="small"></lightning-icon>
+            </div>
+        </div>
+        <div class="slds-col slds-size_3-of-12 slds-border_top slds-p-buttom_medium">
+            <b> Location </b>
+        </div>
+        <div class="slds-col slds-size_9-of-12 slds-border_top slds-p-buttom_medium">
+            {location}
+        </div>
+        <div class="slds-col slds-size_3-of-12">
+            <b> Skills </b>
+        </div>
+        <div class="slds-col slds-size_9-of-12">
+            <p> {skillsString} </p>
+        </div>
+    </div>
+</template>

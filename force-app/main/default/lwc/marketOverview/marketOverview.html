@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Market Overview">
+        <lightning-combobox if:true={showDropdown} slot="actions" name="Visability" label="Visability"
+                            value={userId} placeholder="Select User"
+                            options={userNames} onchange={handleChange}>
+        </lightning-combobox>
+        <div class="slds-box slds-grid slds-grid_vertical-align-start slds-wrap slds-theme_default slds-p-horizontal_small">
+            <div class="slds-col slds-size_2-of-12">
+                <c-clients-list user-id={userId} onselectlist={onSelectList}></c-clients-list> 
+            </div>
+            <div class="slds-col slds-size_10-of-12">
+                <c-accounts-table   acc-fields={accFields} 
+                                    user-client-lists={userClientLists}
+                                    current-client-list-id={currentClientListId}
+                                    onmove={hadleMoveAccounts}>
+                </c-accounts-table>
+            </div>
+        </div>
+    </lightning-card>
+</template>

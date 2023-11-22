@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>General_Letterhead</letterhead>
+    <name>New Lead Auto-Reply</name>
+    <style>freeForm</style>
+    <subject>Thank you for your request</subject>
+    <textOnly>Dear {!Lead.Name}
+
+Thank you for your interest in {!Organization.Name}.
+We will contact you shortly.
+
+
+Capwell denkt met je mee
+
+Havenstraat 30 
+3115 HD Schiedam 
+T +31 (0)10 475 55 83 | F +31 (0)10 475 55 84 | E algemeen@capwell.nl I www.capwell.nl</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

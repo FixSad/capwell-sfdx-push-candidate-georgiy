@@ -1,0 +1,55 @@
+avr_aanvraag (
+    id -> Job.LegacyOpaID__c
+    company_id -> Job.AccountId / LegacyAccountId__c
+    slug -> Job.Slug__c
+    binnengekomen_via -> Job.Source__c / LeadSource
+    functie -> Job.Function__c
+    omschrijving -> Job.Description
+    toelichting -> ? / Job.Project_Purpose__c
+    opmerking_klant -> ? Job.Description
+    online (‘1=online, 2=offline’) -> Job.Publish__c
+    type_vacature (‘freelance’,‘vast’) -> Job.RecordType (Freelance, Permanent)
+    datum_binnenkomst -> ? Job.CreatedDate
+    datum_plaatsing -> ? Placement.CreatedDate
+    datum_sluiting -> ? Job.ClosedDate
+    regio -> Job.AccountId.Region__c
+    locatie -> Job.Location
+    type_kandidaat -> Job.Type (Freelance, Permanent)
+    contractsduur -> ? Job.Duration
+    disciplines_vereist -> Job.Required_Skills / Job.Skills (Primary)
+    disciplines_gewenst -> Job.Desired_Skills / Job.Skills (Secondary)
+    job_type -> Job.Job_Type__c
+    waardering -> ? Job.Rate
+    estamit_period -> ? Duration
+    dealwaarde -> ? Amount
+    city_id -> ? / Job.Account.City
+    extra_dealpotentie -> ? Expected Revenue
+    onhold -> Job.StageName
+    bedrijfsnaam -> Job.AccountId
+    website -> Account.Website
+    radar_requested_person_id -> Job.Candidate.Id
+    write_ad -> ? Job.StageName
+    searching_candidates -> Job.StageName
+    offered_candidates -> Job.StageName
+    interview_planned -> Job.StageName
+    is_content_job -> Job.Job_Type__c
+    is_junior -> Job.Level__c
+    is_medior -> Job.Level__c
+    is_senior -> Job.Level__c
+    is_lead -> Job.Level__c
+    min_salary -> Job.Max_Rate
+    max_salary -> Job.Min_Rate
+    duration_months -> Job.Contract_Duration_Months__c
+    project_start -> Job.Project_Start__c
+    
+    handelsnaam_id int(11) unsigned NOT NULL DEFAULT ‘1’ COMMENT ‘FK Handelsnaam voor Aanvraag’,
+    person_id -> Job.Hiring_Manager (ContactId)*
+    tijdstip_aanvang -> ? Job.StartDate
+    inzet -> ? Days/Hourse per week / month
+    inzet_period -> ? Hours
+    reageren_voor -> ? Get back before…
+    is_populate_skill_search -> ? Check with number
+    min_days -> ? +
+    max_days -> ? +
+    is_blockmailshot -> ? +
+    blockmailshotbyuser -> ? +

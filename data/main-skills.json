@@ -1,0 +1,183 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__dotNET"
+      },
+      "Name": ".NET",
+      "Alias__c": "dotnet",
+      "LegacySkillId__C": 140
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Delphi"
+      },
+      "Name": "Delphi",
+      "LegacySkillId__C": 149
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Java"
+      },
+      "Name": "Java",
+      "LegacySkillId__C": 150
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Progress"
+      },
+      "Name": "Progress",
+      "LegacySkillId__C": 106
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__MSSQL"
+      },
+      "Name": "MS SQL",
+      "Alias__c": "Microsoft SQL Server",
+      "LegacySkillId__C": 303
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Oracle"
+      },
+      "Name": "Oracle",
+      "LegacySkillId__C": 445
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__PHP"
+      },
+      "Name": "PHP",
+      "LegacySkillId__C": 172
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Python"
+      },
+      "Name": "Python",
+      "LegacySkillId__C": 173
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Rails"
+      },
+      "Name": "Ruby on Rails",
+      "Alias__c": "Rails, RoR",
+      "LegacySkillId__C": 227
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Frontend"
+      },
+      "Name": "Frontend developer",
+      "LegacySkillId__C": 366
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__XML"
+      },
+      "Name": "XML",
+      "LegacySkillId__C": 295
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Mobile"
+      },
+      "Name": "Mobile",
+      "Alias__c": "App Development",
+      "LegacySkillId__C": 429
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Embedded"
+      },
+      "Name": "Embedded Development",
+      "LegacySkillId__C": 183
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Legacy"
+      },
+      "Name": "Legacy",
+      "LegacySkillId__C": 431
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Database"
+      },
+      "Name": "Databases"
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__BI"
+      },
+      "Name": "Business Intelligence",
+      "Alias__c": "BI, Reporting"
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Architecture"
+      },
+      "Name": "Software Architectuur",
+      "Alias__c": "Architect",
+      "LegacySkillId__C": 518
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Testing"
+      },
+      "Name": "Testen"
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP"
+      },
+      "Name": "ERP",
+      "Alias__c": "Enterprise Resource Planning",
+      "LegacySkillId__C": 73
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__CRM"
+      },
+      "Name": "CRM",
+      "Alias__c": "Customer Relationship Management",
+      "LegacySkillId__C": 196
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__App_Management"
+      },
+      "Name": "Applicatiebeheer"
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__IT_Management"
+      },
+      "Name": "IT Management"
+    }
+  ]
+}

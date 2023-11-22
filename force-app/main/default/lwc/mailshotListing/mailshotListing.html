@@ -1,0 +1,110 @@
+<template>
+    <lightning-card title="Navigate Through List">
+        <div class="slds-card" if:true={hasRecord}>
+            <div class="slds-grid slds-card__body slds-card__body_inner">
+                <div class="slds-col">
+                    <div class="slds-card">
+                        <div class="slds-card__header">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="slds-media__figure">
+                                    <span class="slds-icon_container slds-icon-standard-contact" title="contact">
+                                        <lightning-icon icon-name="standard:contact" alternative-text="Contact Info" title="Contact"></lightning-icon>
+                                        <span class="slds-assistive-text">contact</span>
+                                    </span>
+                                </div>
+                                <div class="slds-media__body">
+                                    <h2 class="slds-card__header-title">
+                                        <a href="#" class="slds-card__header-link slds-truncate" title="Accounts">
+                                            <span>Contact Info</span>
+                                        </a>
+                                    </h2>
+                                </div>
+                                <div class="slds-no-flex">
+                                    <button class="slds-button slds-button_brand"
+                                        onclick={viewRecord}>View</button>
+                                </div>
+                            </header>
+                        </div>
+                        <div class="slds-card__body slds-card__body_inner">
+                            <lightning-record-form record-id={contactId} object-api-name="Contact" mode="readonly"
+                                fields={contactFields}>
+                            </lightning-record-form>
+                            <lightning-radio-group name="radioGroup"
+                                label="Add to short list?"
+                                options={shotlistOptions}
+                                value={shortlist}
+                                onchange={handleShortlistSelection}
+                                type="radio">
+                          </lightning-radio-group>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col">
+                    <div class="slds-card">
+                        <div class="slds-card__header">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="slds-media__figure">
+                                    <span class="slds-icon_container slds-icon-standard-task" title="call">
+                                        <lightning-icon icon-name="standard:log_a_call" alternative-text="Log a Call" title="Call"></lightning-icon>
+                                        <span class="slds-assistive-text">call</span>
+                                    </span>
+                                </div>
+                                <div class="slds-media__body">
+                                    <h2 class="slds-card__header-title">
+                                        <a href="#" class="slds-card__header-link slds-truncate" title="Call">
+                                            <span>Log a Call</span>
+                                        </a>
+                                    </h2>
+                                </div>
+                            </header>
+                        </div>
+                        <div class="slds-card__body slds-card__body_inner">
+                            <div class="slds-form">
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <label class="slds-form-element__label" for="stacked-input-id-01">Subject</label>
+                                    <div class="slds-form-element__control">
+                                        <input type="text" id="stacked-input-id-01" class="slds-input" value="Call"
+                                            disabled />
+                                    </div>
+                                </div>
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <template if:true={statusPicklist.data}>
+                                        <lightning-combobox name="Status" label="Status" value={status}
+                                                options={statusPicklist.data.values} onchange={handleStatusChange}>
+                                        </lightning-combobox>
+                                    </template>
+                                </div>
+                                <div class="slds-form-element slds-form-element_stacked">
+                                    <label class="slds-form-element__label" for="stacked-input-id-02">Comments</label>
+                                    <div class="slds-form-element__control">
+                                        <textarea id="stacked-input-id-02" placeholder="Type your comments here..."
+                                            onchange={handleCommentInput} class="slds-textarea">
+                                            {comments}
+                                        </textarea>
+                                    </div>
+                                </div>
+                                <div class="slds-clearfix">
+                                    <div class="slds-float_right">
+                                        <button class="slds-button slds-button_brand" onclick={submit}>Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="slds-card__footer">
+                <div class="slds-grid slds-gutters">
+                    <span class="slds-col"></span>
+                    <button class="slds-button slds-button_neutral slds-col" onclick={handlePrev}>&#60; Prev</button>
+                    <p class="slds-col">showing {pagination.offset} of {pagination.total}</p>
+                    <button class="slds-button slds-button_neutral slds-col" onclick={handleNext}>Next &#62;</button>
+                    <span class="slds-col"></span>
+                </div>
+            </footer>
+        </div>
+        <div class="slds-align_absolute-center" if:false={hasRecord}>
+            You cannot see any candidate until mailshot is sent :(
+        </div>
+    </lightning-card>
+</template>

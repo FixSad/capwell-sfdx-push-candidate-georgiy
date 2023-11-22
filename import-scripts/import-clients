@@ -1,0 +1,99 @@
+List<opa_company__c> tmpList = [SELECT id, LegacyOpaID_Company__c, bedrijf_naam__c, rekeningnummer__c, is_freelancer__c, 
+                          postcode__c, plaats__c, post_adres__c, customers_competitors__c,
+                          corporate_culture__c, memo__c, rechtsvorm__c, phone__c,
+                          postcode_ba__c, plaats_ba__c, bezoek_adres__c, website__c,
+                          email__c, kvknummer__c, mobile_phone__c,
+                          facturatie_tav__c, creditcheck_status__c, creditcheck_bedrag_akkoord__c,
+                          credit_graydon_check__c, creditcheck_anders__c, creditcheck_anders_type__c,
+                          facts_figures__c, factuur_gem_betaaltermijn__c, is_perm__c, is_temp__c,
+                          afgesproken_betaaltermijn__c, email_adres_herinneringen__c, isMapped__c, true_freelancer__c FROM opa_company__c WHERE isMapped__c=false 
+                          LIMIT 100];
+List<Account> accUpdate = new List<Account>();
+Schema.sObjectField legacyId = Account.Fields.LegacyOpaID__c;
+Id clientRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName(). get('Client'). getRecordTypeId();
+Id FreelanceRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName(). get('Freelance'). getRecordTypeId();
+for (opa_company__c tmpRec : tmpList) {
+    Account accTmp = new Account();
+    accTmp.Name = String.isNotBlank(tmpRec. ) ? tmpRec.bedrijf_naam__c : 'uknown '+tmpRec.LegacyOpaID_Company__c;
+    accTmp.RecordTypeId = tmpRec.true_freelancer__c==1 ? FreelanceRecordTypeId : clientRecordTypeId;
+    accTmp.LegacyOpaID__c = tmpRec.LegacyOpaID_Company__c;
+    accTmp.AccountNumber = tmpRec.rekeningnummer__c !='NULL' ? tmpRec.rekeningnummer__c : null;
+    accTmp.isFreelance__c = tmpRec.is_freelancer__c ? true : false;
+    accTmp.BillingPostalCode = tmpRec.postcode__c!='NULL' ? tmpRec.postcode__c : null;
+    accTmp.BillingCity = tmpRec.plaats__c!='NULL' ? tmpRec.plaats__c : null;
+    accTmp.BillingStreet = tmpRec.post_adres__c!='NULL' ? tmpRec.post_adres__c : null;
+    accTmp.Business_Competitors__c = tmpRec.customers_competitors__c !='NULL' ? tmpRec.customers_competitors__c : null;
+    accTmp.Business_Culture__c = tmpRec.corporate_culture__c!='NULL' ? tmpRec.corporate_culture__c : null;
+    accTmp.Description = tmpRec.memo__c!='NULL' ? tmpRec.memo__c : null;
+    accTmp.Ownership = tmpRec.rechtsvorm__c!='NULL' ? tmpRec.rechtsvorm__c : null;
+    accTmp.Phone = tmpRec.phone__c!='NULL' ? tmpRec.phone__c : null;
+    accTmp.ShippingPostalCode = tmpRec.postcode_ba__c!='NULL' ? tmpRec.postcode_ba__c : null;
+    accTmp.ShippingCity = tmpRec.plaats_ba__c!='NULL' ? tmpRec.plaats_ba__c : null;
+    accTmp.ShippingStreet = tmpRec.bezoek_adres__c!='NULL' ? tmpRec.bezoek_adres__c : null;
+    accTmp.Website = tmpRec.website__c!='NULL' ? tmpRec.website__c : null;
+    accTmp.Email__c = tmpRec.email__c!='NULL' ? tmpRec.email__c : null;
+    accTmp.KVK_Nummer__c = tmpRec.kvknummer__c!='NULL' ? tmpRec.kvknummer__c : null;
+    accTmp.Mobile_Phone__c = tmpRec.mobile_phone__c!='NULL' ? tmpRec.mobile_phone__c : null;
+    accTmp.Facturactie_tav__c = tmpRec.facturatie_tav__c!='NULL' ? tmpRec.facturatie_tav__c : null;
+    accTmp.Credit_Check__c = tmpRec.creditcheck_status__c == '1' ? true : false;
+    accTmp.Creditcheck_Bedrag_Akkoord__c = String.isNotEmpty(tmpRec.creditcheck_bedrag_akkoord__c) ? (tmpRec.creditcheck_bedrag_akkoord__c.isNumeric() ? Decimal.valueOf(tmpRec.creditcheck_bedrag_akkoord__c) : 0) : 0;
+    accTmp.Credit_Graydon_Check__c = String.isNotEmpty(tmpRec.credit_graydon_check__c) ? (tmpRec.credit_graydon_check__c.isNumeric() ? Decimal.valueOf(tmpRec.credit_graydon_check__c) : 0) : 0;
+    accTmp.Creditcheck_Anders__c = tmpRec.creditcheck_anders__c == '1' ? true : false;
+    accTmp.Creditcheck_Anders_Type__c = tmpRec.creditcheck_anders_type__c!='NULL' ? tmpRec.creditcheck_anders_type__c : null;
+    accTmp.Facts_Figures__c = tmpRec.facts_figures__c!='NULL' ? tmpRec.facts_figures__c : null;
+    accTmp.Factuur_Gem_Betaaltermijn__c = String.isNotEmpty(tmpRec.factuur_gem_betaaltermijn__c) ? (tmpRec.factuur_gem_betaaltermijn__c.isNumeric() ? Integer.valueOf(tmpRec.factuur_gem_betaaltermijn__c) : 0) : 0;
+    accTmp.Is_Perm__c = tmpRec.is_perm__c ? true : false;
+    accTmp.Is_Temp__c = tmpRec.is_temp__c ? true : false;
+    accTmp.Afgesproken_Betaaltermijn__c = tmpRec.afgesproken_betaaltermijn__c!='NULL' ? tmpRec.afgesproken_betaaltermijn__c : null;
+    accTmp.Email_Herinneringen__c = tmpRec.email_adres_herinneringen__c!='NULL' ? tmpRec.email_adres_herinneringen__c : null;
+    accUpdate.add(accTmp);
+}
+Map<String, String> badId = new Map<String, String>();
+Set<String> goodId = new Set<String>();
+Set<String> badIds = new Set<String>();
+if (!accUpdate.isEmpty()) {
+    Database.UpsertResult[] res = Database.upsert(accUpdate, legacyId, false);
+    List<opa_company__c> toUpdate = new List<opa_company__c>();
+    for (Database.UpsertResult result : res) {
+        if (result.isSuccess()) {
+            goodId.add(result.getId());
+        } else {
+            String errMessage = '';
+            for (Database.Error er : result.getErrors()) {
+                errMessage += er.getMessage() + ' --- ';
+            }
+
+            badId.put(result.getId(), errMessage);
+            badIds.add(result.getId());
+        }
+    }
+}
+if (!goodId.isEmpty()){
+    List<Account> goodList = new List<Account>();
+    for(String id : goodId) {
+        Account tmpAcc = new Account(Id = id);
+        //tmpAcc.id = id;
+        tmpAcc.isProcessed__c = true;
+        goodList.add(tmpAcc);
+    }
+    if (!goodList.isEmpty()) {
+        Database.upsert(goodList);
+    }
+}
+List<Account> processed = [SELECT id, LegacyOpaID__c FROM Account WHERE isProcessed__c=true];
+Set<String> processedIDs = new Set<String>();
+for (Account tmp : processed) {
+    processedIDs.add(tmp.LegacyOpaID__c);
+}
+if (!processedIDs.isEmpty()) {
+    List<opa_company__c> processedOpa = [SELECT id FROM opa_company__c WHERE LegacyOpaID_Company__c IN :processedIDs AND isMapped__c=false];
+    for (opa_company__c tmp : processedOpa) {
+        tmp.isMapped__c = true;
+    }
+    update processedOpa;
+    system.debug(processedOpa.size());
+}
+//for (String bId : badId.keySet()) {
+//
+//}
+system.debug(badId);

@@ -1,0 +1,10 @@
+.custom-box {
+  text-align: center;
+  padding: 0.2rem;
+  border: 1px solid #d8dde6;
+  margin-bottom: 10px;
+}
+
+span {
+  text-decoration: underline;
+}

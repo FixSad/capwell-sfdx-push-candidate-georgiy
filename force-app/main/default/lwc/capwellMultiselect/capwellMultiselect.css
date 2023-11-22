@@ -1,0 +1,41 @@
+.capwell-multiselect {
+  display: flex;
+  flex-direction: column;
+}
+.capwell-multiselect-option {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+}
+.cm-option-number {
+  text-transform: uppercase;
+  background: #FFFFFF;
+  border: 1px solid #E8E8E8;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 3px rgba(211, 211, 211, 0.2);
+  border-radius: 3px;
+  height: 48px;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 28px;
+  color: #000000;
+  font-weight: normal;
+}
+.cm-option-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+.cm-option-checkbox[type="checkbox"]:checked + .cm-option-number {
+  background: #E3E3E3;
+  border: 1px solid #404040;
+}
+.capwell-multiselect-label {
+  color: #000000;
+  font-size: 16px;
+  line-height: 28px;
+  margin-left: 20px;
+}

@@ -1,0 +1,21 @@
+List<opa_manager__c> mngList = [SELECT Id, LegacyOpaID_Company__c, Account__c, acc_linked__c, error__c FROM opa_manager__c WHERE acc_linked__c = false limit 200];
+Set<String> accIds = new Set<String>();
+for (opa_manager__c tmpRec : mngList) {
+    if (String.isNotBlank(String.valueOf(tmpRec.LegacyOpaID_Company__c))) {
+	    accIds.add(String.valueOf(tmpRec.LegacyOpaID_Company__c));
+    }
+}
+List<Account> accList = [SELECT Id, LegacyOpaID__c FROM Account WHERE LegacyOpaID__c IN :accIds];
+Map<String, String> accMap = new Map<String,String>();
+for (Account tmpRec : accList) {
+    accMap.put(String.valueOf(tmpRec.LegacyOpaID__c), tmpRec.Id);
+}
+for (opa_manager__c tmpRec : mngList) {
+    tmpRec.acc_linked__c = true;
+    if (accMap.get(String.valueOf(tmpRec.LegacyOpaID_Company__c))!=null) {
+        tmpRec.Account__c = accMap.get(String.valueOf(tmpRec.LegacyOpaID_Company__c));
+    } else {
+        tmpRec.error__c = 'Account not found '+tmpRec.LegacyOpaID_Company__c;
+    }
+}
+update mngList;

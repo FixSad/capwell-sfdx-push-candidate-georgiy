@@ -1,0 +1,11 @@
+<template>
+    <lightning-vertical-navigation onselect={handleSelect} selected-item={selectedItem}>
+            <lightning-vertical-navigation-section label="Client Lists">
+                <template for:each={clientListArr} for:item="clientList">
+                    <lightning-vertical-navigation-item-badge key={clientList.Id} label={clientList.Name}
+                                                                name={clientList.Id} badge-count={clientList.NumberOfAcc}>
+                    </lightning-vertical-navigation-item-badge>
+                </template>
+            </lightning-vertical-navigation-section>
+    </lightning-vertical-navigation>
+</template>

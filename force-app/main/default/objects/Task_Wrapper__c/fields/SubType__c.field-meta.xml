@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SubType__c</fullName>
+    <externalId>false</externalId>
+    <label>Sub Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>clBBC</fullName>
+                <default>false</default>
+                <label>clBBC</label>
+            </value>
+            <value>
+                <fullName>clGGT</fullName>
+                <default>false</default>
+                <label>clGGT</label>
+            </value>
+            <value>
+                <fullName>clJOBQ</fullName>
+                <default>false</default>
+                <label>clJOBQ</label>
+            </value>
+            <value>
+                <fullName>clCAS</fullName>
+                <default>false</default>
+                <label>clCAS</label>
+            </value>
+            <value>
+                <fullName>clMEET</fullName>
+                <default>false</default>
+                <label>clMEET</label>
+            </value>
+            <value>
+                <fullName>canQ</fullName>
+                <default>false</default>
+                <label>canQ</label>
+            </value>
+            <value>
+                <fullName>canCAS</fullName>
+                <default>false</default>
+                <label>canCAS</label>
+            </value>
+            <value>
+                <fullName>Obj No recr</fullName>
+                <default>false</default>
+                <label>Obj No recr</label>
+            </value>
+            <value>
+                <fullName>Obj PSL</fullName>
+                <default>false</default>
+                <label>Obj PSL</label>
+            </value>
+            <value>
+                <fullName>Obj Other</fullName>
+                <default>false</default>
+                <label>Obj Other</label>
+            </value>
+            <value>
+                <fullName>Schedule: date &amp; time</fullName>
+                <default>false</default>
+                <label>Schedule: date &amp; time</label>
+            </value>
+            <value>
+                <fullName>clCheck</fullName>
+                <default>false</default>
+                <label>clCheck</label>
+            </value>
+            <value>
+                <fullName>canCheck</fullName>
+                <default>false</default>
+                <label>canCheck</label>
+            </value>
+            <value>
+                <fullName>Project</fullName>
+                <default>false</default>
+                <label>Project</label>
+            </value>
+            <value>
+                <fullName>Invoice</fullName>
+                <default>false</default>
+                <label>Invoice</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Sale</controllingFieldValue>
+            <valueName>clBBC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sale</controllingFieldValue>
+            <valueName>clGGT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sale</controllingFieldValue>
+            <valueName>clJOBQ</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sale</controllingFieldValue>
+            <valueName>clCAS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sale</controllingFieldValue>
+            <valueName>clMEET</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sale</controllingFieldValue>
+            <valueName>canQ</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sale</controllingFieldValue>
+            <valueName>canCAS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NOsale</controllingFieldValue>
+            <valueName>Obj No recr</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NOsale</controllingFieldValue>
+            <valueName>Obj PSL</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NOsale</controllingFieldValue>
+            <valueName>Obj Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Project</controllingFieldValue>
+            <valueName>clCheck</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Project</controllingFieldValue>
+            <valueName>canCheck</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Notes</controllingFieldValue>
+            <valueName>Project</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Notes</controllingFieldValue>
+            <valueName>Invoice</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

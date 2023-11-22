@@ -1,0 +1,57 @@
+<template>
+	<div class="slds-form-element">
+		<div class="slds-form-element__control skill-container">
+			<div class="slds-combobox-group">
+				<div class="slds-combobox_container slds-combobox-addon_end">
+					<div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open" aria-expanded="true" aria-haspopup="listbox" id="primary-combobox-id-2" role="combobox">
+						<div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_group-right" role="none">
+							<input
+								id="skill-search-input"
+								type="text"
+								onkeyup={handleSearchTermChange}
+								aria-activedescendant="option0"
+								aria-autocomplete="list"
+								aria-controls="search-results"
+								autocomplete="off"
+								role="textbox"
+								placeholder="Search skill..."
+								class="slds-input slds-combobox__input slds-has-focus slds-combobox__input-value" />
+
+							<div class="slds-input__icon-group slds-input__icon-group_right" if:true={isLoading}>
+								<div role="status" class="slds-spinner slds-spinner_brand slds-spinner_x-small slds-input__spinner">
+									<span class="slds-assistive-text">Loading</span>
+									<div class="slds-spinner__dot-a"></div>
+									<div class="slds-spinner__dot-b"></div>
+								</div>
+							</div>
+						</div>
+						<div id="search-results" class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox" if:true={showResults}>
+							<ul class="slds-listbox slds-listbox_vertical" role="presentation">
+								<li role="presentation" class="slds-listbox__item" if:false={hasResults}>
+									No result found.
+								</li>
+								<template for:each={searchResults} for:item="searchResult">
+									<li role="presentation" class="slds-listbox__item" key={searchResult.Id} data-id={searchResult.Id} data-name={searchResult.Name} onclick={handleSkillClick}>
+										<div class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option">
+											<span class="slds-media__figure slds-listbox__option-icon">
+												<span class="slds-icon_container slds-icon-standard-account">
+													<lightning-icon icon-name="standard:account" alternative-text="account"></lightning-icon>
+												</span>
+											</span>
+											<span class="slds-media__body">
+												<span class="slds-listbox__option-text slds-listbox__option-text_entity">
+													<span>{searchResult.Name}</span>
+												</span>
+												<span class="slds-listbox__option-meta slds-listbox__option-meta_entity">{searchResult.Alias__c}</span>
+											</span>
+										</div>
+									</li>
+								</template>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

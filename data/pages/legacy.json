@@ -1,0 +1,44 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__CobolProgrammeur"
+            },
+            "Name": "cobol programmeur",
+            "Slug__c": "cobol-programmeur",
+            "Skill__c": "@Skill__Legacy",
+            "Radar_Page_Group__c": "@Page_Group__Legacy"
+        },
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__RPGProgrammeur"
+            },
+            "Name": "rpg programmeur",
+            "Slug__c": "rpg-programmeur",
+            "Skill__c": "@Skill__Legacy",
+            "Radar_Page_Group__c": "@Page_Group__Legacy"
+        },
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__VB6Programmeur"
+            },
+            "Name": "vb6 programmeur",
+            "Slug__c": "vb6-programmeur",
+            "Skill__c": "@Skill__Legacy",
+            "Radar_Page_Group__c": "@Page_Group__Legacy"
+        },
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Page_Group__ProgressDeveloper"
+            },
+            "Name": "progress developers",
+            "Slug__c": "progress developers",
+            "Skill__c": "@Skill__Progress",
+            "Radar_Page_Group__c": "@Page_Group__Legacy"
+        }
+    ]
+}

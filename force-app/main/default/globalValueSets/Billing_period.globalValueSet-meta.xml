@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>bi weekly</fullName>
+        <default>true</default>
+        <label>bi weekly</label>
+    </customValue>
+    <customValue>
+        <fullName>weekly</fullName>
+        <default>false</default>
+        <label>weekly</label>
+    </customValue>
+    <customValue>
+        <fullName>monthly</fullName>
+        <default>false</default>
+        <label>monthly</label>
+    </customValue>
+    <masterLabel>Billing period</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

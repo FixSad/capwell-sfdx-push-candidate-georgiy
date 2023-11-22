@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>true</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Business Qualification</fullName>
+                <default>false</default>
+                <label>Business Qualification</label>
+            </value>
+            <value>
+                <fullName>Team Qualification</fullName>
+                <default>false</default>
+                <label>Team Qualification</label>
+            </value>
+            <value>
+                <fullName>Hotness</fullName>
+                <default>false</default>
+                <label>Hotness</label>
+            </value>
+            <value>
+                <fullName>Qualified</fullName>
+                <default>false</default>
+                <label>Qualified</label>
+            </value>
+            <value>
+                <fullName>Not Qualified</fullName>
+                <default>false</default>
+                <label>Not Qualified</label>
+            </value>
+            <value>
+                <fullName>Freelance Qualified</fullName>
+                <default>false</default>
+                <label>Freelance Qualified</label>
+            </value>
+            <value>
+                <fullName>Perm Qualified</fullName>
+                <default>false</default>
+                <label>Perm Qualified</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

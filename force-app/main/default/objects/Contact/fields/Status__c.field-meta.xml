@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>true</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Situation</fullName>
+                <default>false</default>
+                <label>Situation</label>
+            </value>
+            <value>
+                <fullName>Closes</fullName>
+                <default>false</default>
+                <label>Closes</label>
+            </value>
+            <value>
+                <fullName>IV Process</fullName>
+                <default>false</default>
+                <label>IV Process</label>
+            </value>
+            <value>
+                <fullName>Tech Skills</fullName>
+                <default>false</default>
+                <label>Tech Skills</label>
+            </value>
+            <value>
+                <fullName>Expectations</fullName>
+                <default>false</default>
+                <label>Expectations</label>
+            </value>
+            <value>
+                <fullName>Qualified</fullName>
+                <default>false</default>
+                <label>Qualified</label>
+            </value>
+            <value>
+                <fullName>Initial Contact</fullName>
+                <default>false</default>
+                <label>Initial Contact</label>
+            </value>
+            <value>
+                <fullName>Motivation</fullName>
+                <default>false</default>
+                <label>Motivation</label>
+            </value>
+            <value>
+                <fullName>Needs</fullName>
+                <default>false</default>
+                <label>Needs</label>
+            </value>
+            <value>
+                <fullName>Relocator</fullName>
+                <default>false</default>
+                <label>Relocator</label>
+            </value>
+            <value>
+                <fullName>Salary</fullName>
+                <default>false</default>
+                <label>Salary</label>
+            </value>
+            <value>
+                <fullName>Benefits</fullName>
+                <default>false</default>
+                <label>Benefits</label>
+            </value>
+            <value>
+                <fullName>Candidate USP</fullName>
+                <default>false</default>
+                <label>Candidate USP</label>
+            </value>
+            <value>
+                <fullName>Counter Offer</fullName>
+                <default>false</default>
+                <label>Counter Offer</label>
+            </value>
+            <value>
+                <fullName>Other Opportunities</fullName>
+                <default>false</default>
+                <label>Other Opportunities</label>
+            </value>
+            <value>
+                <fullName>Business not to approach</fullName>
+                <default>false</default>
+                <label>Business not to approach</label>
+            </value>
+            <value>
+                <fullName>Closing on availability</fullName>
+                <default>false</default>
+                <label>Closing on availability</label>
+            </value>
+            <value>
+                <fullName>Selling your service</fullName>
+                <default>false</default>
+                <label>Selling your service</label>
+            </value>
+            <value>
+                <fullName>Selling Exclusivity</fullName>
+                <default>false</default>
+                <label>Selling Exclusivity</label>
+            </value>
+            <value>
+                <fullName>Identifying Alarmbells</fullName>
+                <default>false</default>
+                <label>Identifying Alarmbells</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

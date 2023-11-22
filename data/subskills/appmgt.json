@@ -1,0 +1,22 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__App_Management_Technical"
+      },
+      "Name": "Technisch applicatiebeheer",
+      "Parent__c": "@Skill__App_Management",
+      "LegacySkillId__C": 286
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__App_Management_Functional"
+      },
+      "Name": "Functioneel applicatiebeheer",
+      "Parent__c": "@Skill__App_Management",
+      "LegacySkillId__C": 287
+    }
+  ]
+}

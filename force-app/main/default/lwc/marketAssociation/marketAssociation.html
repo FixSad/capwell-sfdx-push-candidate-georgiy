@@ -1,0 +1,21 @@
+<template>
+    <h1 >Associate with Market List</h1>
+    <c-market-selector selected-markets={selectedMarkets}></c-market-selector>
+    <div class="slds-listbox_selection-group" style="height:auto;padding-right:5px;overflow: initial;" if:true={hasMarkets}>
+        <ul class="slds-listbox slds-listbox_horizontal" role="listbox" aria-label="Associated Markets:" aria-orientation="horizontal">
+            <template for:each={selectedMarkets} for:item="market">
+                <li class="slds-listbox-item" role="presentation" key={market.Id}>
+                    <span class="slds-pill" role="option" tabindex="0" aria-selected="true">
+                        <span class="slds-icon_container slds-icon-standard-account slds-pill__icon_container">
+                            <lightning-icon icon-name="standard:account"></lightning-icon>
+                        </span>
+                        <span class="slds-pill__label" title={market.title}>{market.title}</span>
+                        <!-- span class="slds-icon_container slds-pill__remove" title="Remove" data-id={market.Id} onclick={handleMarketRemove}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close"></lightning-icon>
+                        </span -->
+                    </span>
+                </li>
+            </template>
+        </ul>
+    </div>
+</template>

@@ -1,0 +1,448 @@
+<template>
+  <lightning-card>
+    <div class="slds-grid slds-gutters slds-var-m-around_x-small">
+      <div class="slds-col slds-size_1-of-6">
+        <lightning-vertical-navigation
+          onselect={handleSelect}
+          selected-item={selectedItem}
+        >
+          <lightning-vertical-navigation-section label="Canvasing List">
+            <template lwc:if={requests}>
+              <template for:each={requests} for:item="request">
+                <lightning-vertical-navigation-item-icon
+                  key={request.Id}
+                  label={request.Name}
+                  name={request.Id}
+                  icon-name={request.Icon__c}
+                >
+                </lightning-vertical-navigation-item-icon>
+              </template>
+            </template>
+          </lightning-vertical-navigation-section>
+        </lightning-vertical-navigation>
+      </div>
+      <div class="slds-col slds-size_5-of-6">
+        <lightning-card>
+          <template lwc:if={currentRequest}>
+            <lightning-layout>
+              <lightning-layout-item padding="around-small">
+                <h1><b>Request Information {currentRequest.Name}</b></h1>
+              </lightning-layout-item>
+              <lightning-layout-item padding="around-small">
+                <h1><b>Candidate Information</b></h1>
+              </lightning-layout-item>
+            </lightning-layout>
+            <div class="slds-form__row">
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">Portal ID</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.Portal_ID__c}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">Portal ID</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.Candidate__r.Portal_ID__c}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slds-form__row">
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">First Name</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.FirstName__c}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">First Name</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.Candidate__r.FirstName}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slds-form__row">
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">Last Name</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.LastName__c}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">Last Name</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.Candidate__r.LastName}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slds-form__row">
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label"
+                      >Available From</label
+                    >
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.Start_from__c}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label"
+                      >Available From</label
+                    >
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.Candidate__r.Available_Date__c}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slds-form__row">
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">City</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.City__c}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">City</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.Candidate__r.MailingCity}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slds-form__row">
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">Country</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.Country__c}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">Country</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.Candidate__r.MailingCountry}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slds-form__row">
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">Postal Code</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.PostalCode__c}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">Postal Code</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.Candidate__r.MailingPostalCode}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slds-form__row">
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">Street</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        {currentRequest.Street__c} -
+                        {currentRequest.HouseNumber__c}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">Street</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.Candidate__r.MailingStreet}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slds-form__row">
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">Birthdate</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.Date_of_Birth__c}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">Birthdate</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.Candidate__r.Birthdate}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slds-form__row">
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">LinkedIn</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.LinkedIn_Profile__c}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">LinkedIn</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.Candidate__r.LinkedIn_Profile__c}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slds-form__row">
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">Mobile Phone</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.PhoneNumber__c}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-form" role="list">
+                <div class="slds-form__item" role="listitem">
+                  <div
+                    class="slds-form-element slds-form-element_stacked slds-form-element_readonly"
+                  >
+                    <label class="slds-form-element__label">Mobile Phone</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-text
+                          value={currentRequest.Candidate__r.MobilePhone}
+                        ></lightning-formatted-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <lightning-layout horizontal-align="space">
+              <div class="custom-box">
+                Display Name: <span>{currentRequest.DisplayName__c}</span>
+              </div>
+              <div class="custom-box">
+                Inzet: <span>{currentRequest.Inzet__c}</span>
+              </div>
+              <div class="custom-box">
+                Location: <span>{currentRequest.Location__c}</span>
+              </div>
+              <div class="custom-box">
+                Project Duration:
+                <span>{currentRequest.Project_Duration__c}</span>
+              </div>
+              <div class="custom-box">
+                Radius: <span>{currentRequest.Radius__c}</span>
+              </div>
+              <div class="custom-box">
+                Start until: <span>{currentRequest.Start_until__c}</span>
+              </div>
+              <div class="custom-box">
+                Title: <span>{currentRequest.Title__c}</span>
+              </div>
+
+              <lightning-layout-item lwc:if={currentRequest.Candidate__c}>
+                <div class="custom-box">
+                  Title: <span>{currentRequest.Candidate__r.Title}</span>
+                </div>
+              </lightning-layout-item>
+            </lightning-layout>
+          </template>
+        </lightning-card>
+      </div>
+    </div>
+  </lightning-card>
+</template>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Effort__c</fullName>
+    <externalId>false</externalId>
+    <label>Effort</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>5 dagen per week</fullName>
+                <default>false</default>
+                <label>5 dagen per week</label>
+            </value>
+            <value>
+                <fullName>4 dagen per week</fullName>
+                <default>false</default>
+                <label>4 dagen per week</label>
+            </value>
+            <value>
+                <fullName>3 dagen per week</fullName>
+                <default>false</default>
+                <label>3 dagen per week</label>
+            </value>
+            <value>
+                <fullName>2 dagen per week</fullName>
+                <default>false</default>
+                <label>2 dagen per week</label>
+            </value>
+            <value>
+                <fullName>1 dagen per week</fullName>
+                <default>false</default>
+                <label>1 dagen per week</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

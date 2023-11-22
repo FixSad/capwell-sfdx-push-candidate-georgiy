@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Account__c</columns>
+    <columns>LegacyOpaID_Person__c</columns>
+    <columns>LegacyOpaID_Company__c</columns>
+    <columns>name_prefix__c</columns>
+    <columns>first_name__c</columns>
+    <columns>middle_name__c</columns>
+    <columns>last_name__c</columns>
+    <columns>birth_day__c</columns>
+    <columns>email__c</columns>
+    <columns>phone__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Records</label>
+</ListView>

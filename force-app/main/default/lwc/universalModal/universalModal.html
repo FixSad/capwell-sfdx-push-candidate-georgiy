@@ -1,0 +1,39 @@
+<!-- Universal Modal -->
+<template>
+    <section role="dialog" tabindex="-1" class={size}><!-- slds-modal slds-fade-in-open -->
+        <div class="slds-modal__container">
+            <template if:true={showHeader}>
+                <header class={headerClass}><!-- slds-modal__header -->
+                    <template if:true={showClose}>
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                                title="Close" onclick={onClose}>
+                            <lightning-icon icon-name="utility:close" variant="inverse"
+                                            size={closeIconSize} alternative-text="Close">
+                            </lightning-icon>
+                            <span class="slds-assistive-text">
+                                Close
+                            </span>
+                        </button>
+                    </template>
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">
+                        {title}
+                    </h2>
+                    <template if:true={showSubTitle}>
+                        <p class="slds-p-top_xx-small modal-subtitle">
+                            <slot name="subTitle"></slot>
+                        </p>
+                    </template>
+                </header>
+            </template>
+            <div class={bodyClass}>
+                <slot></slot>
+            </div>
+            <template if:true={showFooter}>
+                <footer class={footerClass}><!-- slds-modal__footer -->
+                    <slot name="footer"></slot>
+                </footer>
+            </template>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

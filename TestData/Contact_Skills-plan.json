@@ -1,0 +1,26 @@
+[
+    {
+        "sobject": "Skill__c",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "Skill__cs.json"
+        ]
+    },
+    {
+        "sobject": "Contact",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "Contacts.json"
+        ]
+    },
+    {
+        "sobject": "Skill_Contact_Association__c",
+        "saveRefs": false,
+        "resolveRefs": true,
+        "files": [
+            "Skill_Contact_Association__cs.json"
+        ]
+    }
+]

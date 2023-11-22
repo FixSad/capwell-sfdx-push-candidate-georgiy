@@ -1,0 +1,44 @@
+.slds-modal__container {
+    transform: none !important;
+}
+
+.mobile-modal {
+    height: calc(100vh + 2px);
+}
+
+.mobile-modal .slds-modal__container {
+    width: 100vw !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.mobile-modal .slds-modal__content {
+    height: 100%;
+    overscroll-behavior-y: contain;
+    z-index: inherit;
+}
+
+.desktop-modal ::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+}
+
+.desktop-modal ::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 6px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    -webkit-border-radius: 16px;
+    background-color: #999999;
+    -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+.desktop-modal ::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.desktop-modal ::-webkit-scrollbar-corner {
+    background-color: transparent;
+}

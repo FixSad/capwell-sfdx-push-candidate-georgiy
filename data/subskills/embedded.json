@@ -1,0 +1,31 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Embedded_C"
+      },
+      "Name": "C",
+      "Parent__c": "@Skill__Embedded",
+      "LegacySkillId__C": 318
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Embedded_CPP"
+      },
+      "Name": "C++",
+      "Parent__c": "@Skill__Embedded",
+      "LegacySkillId__C": 368
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Embedded_PLC"
+      },
+      "Name": "PLC",
+      "Parent__c": "@Skill__Embedded",
+      "LegacySkillId__C": 226
+    }
+  ]
+}

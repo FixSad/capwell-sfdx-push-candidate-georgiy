@@ -1,0 +1,95 @@
+<template>
+	<div class={wrapperClass}>
+		<div class="question-number">
+			<span>{questionNumber}</span>
+		</div>
+		<div class="question-content">
+			<template if:true={isText}>
+				<div class="slds-form-element capwell-input-group">
+					<label class="slds-form-element__label capwell-input-label">{question.Question__c}</label>
+					<template if:true={question.Description__c}>
+						<lightning-formatted-rich-text value={question.Description__c}></lightning-formatted-rich-text>
+					</template>
+					<div class="slds-form-element__control">
+						<input type="text" id={question.Id} placeholder="Placeholder text…" value={value} oninput={handleChange} required={question.isRequired__c} class="slds-input capwell-input" />
+					</div>
+				</div>
+			</template>
+			<template if:true={isDate}>
+				<div class="slds-form-element capwell-input-group">
+					<label class="slds-form-element__label capwell-input-label">{question.Question__c}</label>
+					<template if:true={question.Description__c}>
+						<lightning-formatted-rich-text value={question.Description__c}></lightning-formatted-rich-text>
+					</template>
+					<div class="slds-form-element__control capwell-date-picker slds-is-relative">
+						<input type="date" id={question.Id} value={value} oninput={handleChange} required={question.isRequired__c} class="slds-input slds-is-absolute date-input hide" />
+						<div class="capwell-date-picker-inner slds-is-relative">
+							<input class="slds-input capwell-input date-input date-value" value={formattedDate} readonly />
+							<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon slds-is-absolute">
+								<polyline points="6 9 12 15 18 9"></polyline>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</template>
+			<template if:true={isCheckbox}>
+				<div class="slds-form-element capwell-input-group">
+					<span class="slds-form-element__label capwell-input-label">{question.Question__c}</span>
+					<template if:true={question.Description__c}>
+						<lightning-formatted-rich-text value={question.Description__c}></lightning-formatted-rich-text>
+					</template>
+					<label for={question.Id} class="slds-checkbox_toggle capwell-checkbox-toggle">
+						<input id={question.Id} type="checkbox" checked={question.value} onchange={handleChange} required={question.isRequired__c} />
+						<span class="slds-checkbox_faux_container" aria-live="assertive">
+							<span class="slds-checkbox_faux"></span>
+							<span class="slds-checkbox_on">Yes</span>
+							<span class="slds-checkbox_off">No</span>
+						</span>
+					</label>
+				</div>
+			</template>
+			<template if:true={isDropdown}>
+				<c-capwell-combobox
+					label={question.Question__c}
+					value={question.value}
+					options={question.Answer_Options__c}
+					onvaluechange={handleChange}>
+				</c-capwell-combobox>
+			</template>
+			<template if:true={isMultiselect}>
+				<span class="slds-form-element__label capwell-input-label">{question.Question__c}</span>
+				<template if:true={question.Description__c}>
+					<lightning-formatted-rich-text value={question.Description__c}></lightning-formatted-rich-text>
+				</template>
+				<c-capwell-multiselect question={question} onmultiselectvalue={handleChangeMultiSelect}></c-capwell-multiselect>
+			</template>
+			<template if:true={isMinMaxDate}>
+				<div class="slds-form-element__control capwell-date-picker slds-is-relative">
+					<input type="date" data-id="minValue" value={minValue} oninput={handleChange} required={question.isRequired__c} class="slds-input slds-is-absolute date-input hide" />
+					<div class="capwell-date-picker-inner slds-is-relative">
+						<input class="slds-input capwell-input date-input date-value" value={formattedMinDate} readonly />
+						<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon slds-is-absolute">
+							<polyline points="6 9 12 15 18 9"></polyline>
+						</svg>
+					</div>
+				</div>
+				<div class="slds-form-element__control capwell-date-picker slds-is-relative">
+					<input type="date" data-id="maxValue" value={maxValue} oninput={handleChange} required={question.isRequired__c} class="slds-input slds-is-absolute date-input hide" />
+					<div class="capwell-date-picker-inner slds-is-relative">
+						<input class="slds-input capwell-input date-input date-value" value={formattedMaxDate} readonly />
+						<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="dropdown-icon slds-is-absolute">
+							<polyline points="6 9 12 15 18 9"></polyline>
+						</svg>
+					</div>
+				</div>
+			</template>
+			<template if:true={isSkill}>
+				<span class="slds-form-element__label capwell-input-label">{question.Question__c}</span>
+				<template if:true={question.Description__c}>
+					<lightning-formatted-rich-text value={question.Description__c}></lightning-formatted-rich-text>
+				</template>
+				<c-skill-association record-id={recordId} object-api-name={objectApiName} skill-type={question.fieldApiName}></c-skill-association>
+			</template>
+		</div>
+	</div>
+</template>

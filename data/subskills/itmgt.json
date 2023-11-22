@@ -1,0 +1,31 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__IT_Management_ProjectManager"
+      },
+      "Name": "Projectmanager",
+      "Parent__c": "@Skill__IT_Management",
+      "LegacySkillId__C": 221
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__IT_Management_ScrumMaster"
+      },
+      "Name": "Scrummaster",
+      "Parent__c": "@Skill__IT_Management",
+      "LegacySkillId__C": 558
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__IT_Management_IT_Manager"
+      },
+      "Name": "IT manager",
+      "Parent__c": "@Skill__IT_Management",
+      "LegacySkillId__C": 328
+    }
+  ]
+}

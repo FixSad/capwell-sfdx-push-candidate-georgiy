@@ -1,0 +1,104 @@
+List<opa_manager__c> tmpList = [SELECT id, Account__c, beschikbaar_per__c, beschikbaar_per_modified__c, beschikbaar_toelichting__c, birth_day__c, blacklist__c, check_paspoort__c, check_paspoort_datum_verlopen__c, country__c,
+                                        created__c, email__c, email_reserve__c, first_name__c, gevonden_via__c, gevonden_via_anders__c, inschrijfdatum__c, inzet_toelichting__c, inzetbaar__c, inzetbaar_als__c, is_blockmailshot__c,
+                                        is_excel_imported__c, is_linkedin_found__c, is_linkedin_import__c, is_monster_import__c, job_perm__c, job_temp__c, last_name__c, LegacyOpaID_Company__c, LegacyOpaID_Person__c, linkedin_found_status__c, 
+                                        linkedin_public_profile__c, linkedin_recruiter__c, linkedin_recruiter_profile_url__c, mailshot_approved__c, memo__c, middle_name__c, mobile_phone__c, modified__c, name_prefix__c, opa_profile_photo__c,
+                                        opleiding__c, phone__c, plaats__c, post_adres__c, postcode__c, profile_updated__c, quail_questions_current_hourly_rate__c, quail_questions_min_hourly_rate__c, roepnaam__c, studierichting__c,
+                                        tarief_freelancer__c, type_vacature__c, var_status__c
+                            FROM opa_manager__c WHERE isMapped__c=false AND to_ignore__c = false AND LegacyOpaID_Person__c NOT IN (13452, 656, 18654) 
+                          LIMIT 500];
+List<Contact> contUpdate = new List<Contact>();
+Schema.sObjectField legacyId = Contact.Fields.LegacyOpaID__c;
+Id managerRecordType = Schema.SObjectType.Contact.getRecordTypeInfosByName(). get('Contact'). getRecordTypeId();
+for (opa_manager__c tmpRec : tmpList) {
+    Contact contTmp = new Contact();
+    contTmp.FirstName = tmpRec.first_name__c;
+    contTmp.LastName = String.isNotBlank(tmpRec.last_name__c) ? tmpRec.last_name__c : 'Not Defined';
+    contTmp.MiddleName = tmpRec.middle_name__c;
+    contTmp.RecordTypeId = managerRecordType;
+    contTmp.LegacyOpaID__c = String.valueOf(tmpRec.LegacyOpaID_Person__c);
+    contTmp.Birthdate = tmpRec.birth_day__c;
+    contTmp.Description = tmpRec.memo__c;
+    contTmp.Education__c = tmpRec.opleiding__c;
+    contTmp.Studierichting__c = tmpRec.studierichting__c;
+    contTmp.Email = tmpRec.email__c;
+    contTmp.MailingPostalCode = tmpRec.postcode__c;
+    contTmp.MailingCity = tmpRec.plaats__c;
+    contTmp.MailingCountry = tmpRec.country__c;
+    contTmp.MailingStreet = tmpRec.post_adres__c;
+    contTmp.MobilePhone = tmpRec.mobile_phone__c;
+    contTmp.Salutation = tmpRec.name_prefix__c;
+    contTmp.Phone = tmpRec.phone__c;
+    contTmp.Title = tmpRec.inzetbaar_als__c;
+    contTmp.Other_Email__c = tmpRec.email_reserve__c;
+    contTmp.Employable__c = tmpRec.inzetbaar__c=='1' ? true : false;
+    contTmp.isLinkedIn_Found__c = tmpRec.is_linkedin_found__c;
+    contTmp.Registration_Date__c = tmpRec.inschrijfdatum__c;
+    contTmp.Available_Date__c = tmpRec.beschikbaar_per__c;
+    contTmp.Available_Description__c = tmpRec.beschikbaar_toelichting__c;
+    contTmp.Cover_Letter__c = tmpRec.inzet_toelichting__c;
+    contTmp.Tarief__c = tmpRec.tarief_freelancer__c;
+    contTmp.LinkedIn_Profile__c = tmpRec.linkedin_public_profile__c;
+    contTmp.LinkedIn_Recruiter_Profile__c = tmpRec.linkedin_recruiter_profile_url__c;
+    contTmp.OPA_Photo__c = tmpRec.opa_profile_photo__c;
+    contTmp.Profile_Updated__c = tmpRec.profile_updated__c;
+    contTmp.isFreelance__c = tmpRec.job_temp__c;
+    contTmp.isPerm__c = tmpRec.job_perm__c;
+    contTmp.isBlocked__c = tmpRec.is_blockmailshot__c;
+    contTmp.isBlackList__c = tmpRec.blacklist__c;
+    contTmp.isMonster_Import__c = tmpRec.is_monster_import__c;
+    contTmp.isExcel_Import__c = tmpRec.is_excel_imported__c;
+    contTmp.isLinkedIn_Import__c = tmpRec.is_linkedin_import__c;
+    contTmp.ProfileCreated__c = tmpRec.created__c;
+    contTmp.ProfileModified__c = tmpRec.modified__c;
+    contTmp.AccountId = tmpRec.Account__c;
+    contUpdate.add(contTmp);
+}
+Map<String, String> badId = new Map<String, String>();
+Set<String> goodId = new Set<String>();
+Set<String> badIds = new Set<String>();
+if (!contUpdate.isEmpty()) {
+    Database.UpsertResult[] res = Database.upsert(contUpdate, legacyId, false);
+    List<opa_manager__c> toUpdate = new List<opa_manager__c>();
+    for (Database.UpsertResult result : res) {
+        if (result.isSuccess()) {
+            goodId.add(result.getId());
+        } else {
+            String errMessage = '';
+            for (Database.Error er : result.getErrors()) {
+                errMessage += er.getMessage() + ' --- ';
+            }
+
+            badId.put(result.getId(), errMessage);
+            badIds.add(result.getId());
+        }
+    }
+}
+if (!goodId.isEmpty()){
+    List<Contact> goodList = new List<Contact>();
+    for(String id : goodId) {
+        Contact tmpCont = new Contact(Id = id);
+        tmpCont.isProcessed__c = true;
+        goodList.add(tmpCont);
+    }
+    if (!goodList.isEmpty()) {
+        Database.upsert(goodList);
+    }
+}
+List<Contact> processed = [SELECT id, LegacyOpaID__c FROM Contact WHERE isProcessed__c=true];
+Set<Integer> processedIDs = new Set<Integer>();
+for (Contact tmp : processed) {
+    processedIDs.add(Integer.valueOf(tmp.LegacyOpaID__c));
+}
+if (!processedIDs.isEmpty()) {
+    List<opa_manager__c> processedOpa = [SELECT id FROM opa_manager__c WHERE LegacyOpaID_Person__c IN :processedIDs AND isMapped__c=false];
+    for (opa_manager__c tmp : processedOpa) {
+        tmp.isMapped__c = true;
+    }
+    update processedOpa;
+    system.debug(processedOpa.size());
+}
+system.debug(badId);
+
+// 5005, 8092, 8806, 3223, 5484, 8139, 18453, 14624, 1680, 16245, 9109, 19587, 16258, 3687, 12224, 2101, 16355, 12015, 579, 12046, 266, 7057, 2684, 9741, 313, 13355, 878, 11078, 17134, 7270, 13665, 17571, 16442, 16126, 11134)
+// (5401, 17126, 17123, 16424, 16423, 14070, 13633, 7994, 7859, 13740, 10380, 10361, 7983, 17078, 13452)
+// (19489, 18604, 17964, 17953, 16970, 11552, 9404, 9336, 9221, 8270, 7605) 

@@ -1,0 +1,24 @@
+<template>
+  <lightning-card title={listType}>
+    <div slot="actions">
+      <lightning-button-icon
+        icon-name="utility:refresh"
+        onclick={handleRefresh}
+      ></lightning-button-icon>
+      <lightning-button-icon
+        icon-name="utility:new"
+        onclick={handleNew}
+      ></lightning-button-icon>
+    </div>
+    <div style="height: 200px">
+      <lightning-datatable
+        style="font-size: 10px"
+        key-field="Id"
+        data={data}
+        columns={columns}
+        onrowaction={handleRowAction}
+      >
+      </lightning-datatable>
+    </div>
+  </lightning-card>
+</template>

@@ -1,0 +1,94 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Radar_Page__DotNetDeveloper"
+            },
+            "Name": ".net developer",
+            "Slug__c": ".net-developer",
+            "Skill__c": "@Skill__dotNET",
+            "Radar_Page_Group__c":  "@Page_Group__Development"
+          },
+          {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Radar_Page__SharpDotNetDeveloper"
+            },
+            "Name": "c# .net developer",
+            "Slug__c": "c#-.net-developer",
+            "Skill__c": "@Skill__dotNET",
+            "Radar_Page_Group__c":  "@Page_Group__Development"
+          },
+          {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Radar_Page__AspDotNetDeveloper"
+            },
+            "Name": "asp .net developer",
+            "Slug__c": "asp-.net-developer",
+            "Skill__c": "@Skill__dotNET",
+            "Radar_Page_Group__c":  "@Page_Group__Development"
+          },
+          {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Radar_Page__JavaScriptDeveloper"
+            },
+            "Name": "javascript developer",
+            "Slug__c": "javascript-developer",
+            "Skill__c": "@Skill__Frontend",
+            "Radar_Page_Group__c":  "@Page_Group__Development"
+          },
+          {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Radar_Page__DelphiOntwikklaar"
+            },
+            "Name": "delphi ontwikkelaar",
+            "Slug__c": "delphi-ontwikkelaar",
+            "Skill__c": "@Skill__Delphi",
+            "Radar_Page_Group__c":  "@Page_Group__Development"
+          },
+          {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Radar_Page__PHPDeveloper"
+            },
+            "Name": "php developer",
+            "Slug__c": "php-developer",
+            "Skill__c": "@Skill__PHP",
+            "Radar_Page_Group__c":  "@Page_Group__Development"
+          },
+          {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Radar_Page__JavaDeveloper"
+            },
+            "Name": "java developer",
+            "Slug__c": "java-developer",
+            "Skill__c": "@Skill__Java",
+            "Radar_Page_Group__c":  "@Page_Group__Development"
+          },
+          {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Radar_Page__C++Developer"
+            },
+            "Name": "C++ developer",
+            "Slug__c": "c++-developer",
+            "Skill__c": "@Skill__Embedded",
+            "Radar_Page_Group__c":  "@Page_Group__Development"
+          },
+          {
+            "attributes": {
+                "type": "Radar_Page__c",
+                "referenceId": "Radar_Page__PythonDeveloper"
+            },
+            "Name": "python programmeur",
+            "Slug__c": "python-programmeur",
+            "Skill__c": "@Skill__Python",
+            "Radar_Page_Group__c":  "@Page_Group__Development"
+          }
+    ]
+}

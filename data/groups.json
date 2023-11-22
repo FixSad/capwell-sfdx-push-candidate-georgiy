@@ -1,0 +1,32 @@
+{
+    "records": [
+        {
+            "attributes": {
+                "type": "Page_Group__c",
+                "referenceId": "Page_Group__DBA"
+            },
+            "Name": "DBA/Data"
+        },
+        {
+            "attributes": {
+                "type": "Page_Group__c",
+                "referenceId": "Page_Group__Legacy"
+            },
+            "Name": "Legacy"
+        },
+        {
+            "attributes": {
+                "type": "Page_Group__c",
+                "referenceId": "Page_Group__Development"
+            },
+            "Name": "Development"
+        },
+        {
+            "attributes": {
+                "type": "Page_Group__c",
+                "referenceId": "Page_Group__AptMgt"
+            },
+            "Name": "Applicatie Beheer"
+        }
+    ]
+}

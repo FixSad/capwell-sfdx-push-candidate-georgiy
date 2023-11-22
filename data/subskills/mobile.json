@@ -1,0 +1,32 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Mobile_Android"
+      },
+      "Name": "Android",
+      "Alias__C": "Kotlin",
+      "Parent__c": "@Skill__Mobile",
+      "LegacySkillId__C": 277
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Mobile_IOS"
+      },
+      "Name": "IOS",
+      "Alias__C": "Swift, Objective-C",
+      "Parent__c": "@Skill__Mobile",
+      "LegacySkillId__C": 274
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__Mobile_ReactNative"
+      },
+      "Name": "ReactNative",
+      "Parent__c": "@Skill__Mobile"
+    }
+  ]
+}

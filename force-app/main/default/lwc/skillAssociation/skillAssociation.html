@@ -1,0 +1,31 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <img src={capwellIcon} alt="lampIcon" class="recruitmentIcon">{componentTitle}
+        </h3>    
+        <c-skill-selector onselected={handleSelect}></c-skill-selector>
+        <div class="slds-listbox_selection-group" style="height:auto;padding-right:5px;overflow: initial;" if:true={hasSkills}>
+            <ul class="slds-listbox slds-listbox_horizontal" role="listbox" aria-label="Selected Options:" aria-orientation="horizontal">
+                <template for:each={skills} for:item="skill">
+                    <li class="slds-listbox-item" role="presentation" key={skill.Id}>
+                        <span class="slds-pill" role="option" tabindex="0" aria-selected="true">
+                            <span class="slds-icon_container slds-icon-standard-account slds-pill__icon_container">
+                                <lightning-icon icon-name="standard:account"></lightning-icon>
+                            </span>
+                            <span class="slds-pill__label" title={skill.Skill__r.Name}>{skill.Skill__r.Name}</span>
+                            <template if:false={isAccountObject}>
+                                <span if:true={skillLevels.data}>
+                                    <lightning-combobox value={skill.Level__c} options={skillLevels.data.values} data-property="skillLevel" data-id={skill.Id} onchange={handleLevelChange}>
+                                    </lightning-combobox>
+                                </span>
+                            </template>
+                            <span class="slds-icon_container slds-pill__remove" title="Remove" data-id={skill.Id} onclick={handleSkillRemove}>
+                                <lightning-icon icon-name="utility:close" alternative-text="close"></lightning-icon>
+                            </span>
+                        </span>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </lightning-card>
+</template>

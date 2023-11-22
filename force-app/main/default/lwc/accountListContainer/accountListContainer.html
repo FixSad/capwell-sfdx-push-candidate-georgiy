@@ -1,0 +1,27 @@
+<template>
+    <div class="slds-box slds-grid slds-grid_vertical-align-start slds-wrap slds-theme_default">
+        <div class="slds-col slds-size_3-of-12 slds-p-top-medium">
+            <lightning-vertical-navigation onselect={handleSelect} selected-item={selectedItem}>
+                    <lightning-vertical-navigation-section label="Accounts">
+                        <template for:each={accounts} for:item="acc">
+                            <lightning-vertical-navigation-item key={acc.Id} label={acc.Name}
+                                                                name={acc.Id}>
+                            </lightning-vertical-navigation-item>
+                        </template>
+                    </lightning-vertical-navigation-section>
+            </lightning-vertical-navigation>
+        </div>
+        <div class="slds-col slds-size_9-of-12 slds-p-top_medium">
+            <c-account-details  acc-ids={accountIds} onselecteditem={handleSelectedItem}
+                                acc-fields={accFields}> 
+            </c-account-details>
+            <div if:true={isEmptyFields}>
+                <h1 style="color:tomato;">There are no fields were passed. Accounts can't be displayed.</h1>
+            </div>
+            <div if:true={isEmptyAccountIds}>
+                <h1 style="color:tomato;">There are no Ids were passed. Accounts can't be displayed.</h1>
+            </div>
+        </div>
+    </div>
+</template>
+       

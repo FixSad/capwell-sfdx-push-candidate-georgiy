@@ -1,0 +1,20 @@
+<apex:page standardController="Contact" extensions="contactFrontsheetExtention" renderAs="PDF">
+    <table width="100%">
+        <tr>
+            <td width="30%">Kandidaat</td>
+            <td width="70%">{!contact.Name}</td>
+        </tr>
+        <tr>
+            <td width="30%">Functietitle</td>
+            <td width="70%">{!contact.Title}</td>
+        </tr>
+        <tr>
+            <td width="30%">Kennis samenvatting</td>
+            <td width="70%">
+                <apex:outputText value="{!contact.Total_Experience__c }" escape="false"></apex:outputText><br/>
+                {!primSkills}<br/>
+                {!secndSkills}
+            </td>
+        </tr>
+    </table>
+</apex:page>

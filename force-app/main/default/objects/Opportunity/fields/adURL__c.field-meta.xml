@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>adURL__c</fullName>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(IF(ISPICKVAL(Job_Type__c, &apos;E4O&apos;), &apos;https://www.experts4office.nl/&apos;, &apos;https://jobs.capwell.nl/&apos;)+
+IF(RecordType.DeveloperName=&apos;Freelance&apos;, &apos;opdrachten&apos;, &apos;vacatures&apos;)+&apos;/&apos;+ Slug__c, &apos;view advertising&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>adURL</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

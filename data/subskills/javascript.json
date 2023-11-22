@@ -1,0 +1,67 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__JS_Angular",
+          "LegacySkillId__C": 338
+      },
+      "Name": "Angular",
+      "Parent__c": "@Skill__JS"
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__JS_Knockout"
+      },
+      "Name": "KnockoutJS",
+      "Parent__c": "@Skill__JS",
+      "LegacySkillId__C": 342
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__JS_Node"
+      },
+      "Name": "NodeJS",
+      "Parent__c": "@Skill__JS",
+      "LegacySkillId__C": 339
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__JS_React"
+      },
+      "Name": "ReactJS",
+      "Parent__c": "@Skill__JS",
+      "LegacySkillId__C": 341
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__JS_TypeScript"
+      },
+      "Name": "Typescript",
+      "Parent__c": "@Skill__JS",
+      "LegacySkillId__C": 340
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__JS_VUE"
+      },
+      "Name": "VueJS",
+      "Parent__c": "@Skill__JS",
+      "LegacySkillId__C": 343
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__JS_JQuery"
+      },
+      "Name": "JQuery",
+      "Parent__c": "@Skill__JS",
+      "LegacySkillId__C": 289
+    }
+  ]
+}

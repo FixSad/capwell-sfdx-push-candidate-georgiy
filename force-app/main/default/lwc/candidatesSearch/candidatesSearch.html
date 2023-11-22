@@ -1,0 +1,207 @@
+<template>
+  <lightning-card>
+    <template lwc:if={isLoading}>
+      <lightning-spinner alternative-text="Loading..."></lightning-spinner>
+    </template>
+    <div class="slds-grid">
+      <div class="slds-col">
+        <lightning-combobox
+          name="skillGroup"
+          label="Skill Group"
+          placeholder="Select Skill Group"
+          value={skillGroup}
+          onchange={handleValueChange}
+          options={skillGroupOptions}
+        ></lightning-combobox>
+      </div>
+      <div class="slds-col">
+        <h3 slot="title">
+          <img
+            src={capwellIcon}
+            alt="lampIcon"
+            class="recruitmentIcon"
+          />Conjunction Skills (AND)
+        </h3>
+        <c-skill-selector onselected={handleSelectPrimary}></c-skill-selector>
+        <div
+          class="slds-listbox_selection-group"
+          style="height: auto; padding-right: 5px; overflow: initial"
+          if:true={hasPrimarySkills}
+        >
+          <ul
+            class="slds-listbox slds-listbox_horizontal"
+            role="listbox"
+            aria-label="Selected Options:"
+            aria-orientation="horizontal"
+          >
+            <template for:each={primarySkills} for:item="skill">
+              <li class="slds-listbox-item" role="presentation" key={skill.id}>
+                <span
+                  class="slds-pill"
+                  role="option"
+                  tabindex="0"
+                  aria-selected="true"
+                >
+                  <span
+                    class="slds-icon_container slds-icon-standard-account slds-pill__icon_container"
+                  >
+                    <lightning-icon
+                      icon-name="standard:account"
+                    ></lightning-icon>
+                  </span>
+                  <span class="slds-pill__label" title={skill.name}
+                    >{skill.name}</span
+                  >
+                  <span
+                    class="slds-icon_container slds-pill__remove"
+                    title="Remove"
+                    data-id={skill.id}
+                    onclick={handleSkillRemovePrimary}
+                  >
+                    <lightning-icon
+                      icon-name="utility:close"
+                      alternative-text="close"
+                    ></lightning-icon>
+                  </span>
+                </span>
+              </li>
+            </template>
+          </ul>
+        </div>
+        <div>
+          <lightning-button
+            label="Clear"
+            onclick={handleClearPrimarySkills}
+          ></lightning-button>
+        </div>
+      </div>
+      <div class="slds-col">
+        <h3 slot="title">
+          <img
+            src={capwellIcon}
+            alt="lampIcon"
+            class="recruitmentIcon"
+          />Disjunction Skills (OR)
+        </h3>
+        <c-skill-selector onselected={handleSelectSecondary}></c-skill-selector>
+        <div
+          class="slds-listbox_selection-group"
+          style="height: auto; padding-right: 5px; overflow: initial"
+          if:true={hasSecondarySkills}
+        >
+          <ul
+            class="slds-listbox slds-listbox_horizontal"
+            role="listbox"
+            aria-label="Selected Options:"
+            aria-orientation="horizontal"
+          >
+            <template for:each={secondarySkills} for:item="skill">
+              <li class="slds-listbox-item" role="presentation" key={skill.id}>
+                <span
+                  class="slds-pill"
+                  role="option"
+                  tabindex="0"
+                  aria-selected="true"
+                >
+                  <span
+                    class="slds-icon_container slds-icon-standard-account slds-pill__icon_container"
+                  >
+                    <lightning-icon
+                      icon-name="standard:account"
+                    ></lightning-icon>
+                  </span>
+                  <span class="slds-pill__label" title={skill.name}
+                    >{skill.name}</span
+                  >
+                  <span
+                    class="slds-icon_container slds-pill__remove"
+                    title="Remove"
+                    data-id={skill.id}
+                    onclick={handleSkillRemoveSecondary}
+                  >
+                    <lightning-icon
+                      icon-name="utility:close"
+                      alternative-text="close"
+                    ></lightning-icon>
+                  </span>
+                </span>
+              </li>
+            </template>
+          </ul>
+        </div>
+        <div>
+          <lightning-button
+            label="Clear"
+            onclick={handleClearSecondarySkills}
+          ></lightning-button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <lightning-input
+        type="toggle"
+        label="Using Location"
+        name="usingLocation"
+        value={usingLocation}
+        onchange={handleLocation}
+        disabled={noGeolocation}
+      ></lightning-input>
+      <template lwc:if={hasGeolocation}>
+        <template if:true={usingLocation}>
+          <lightning-input
+            type="text"
+            label="Location"
+            name="location"
+            value={location}
+            disabled
+          ></lightning-input>
+          <lightning-slider
+            label="Radius (km) in Mailing Address"
+            value={radius}
+            name="radius"
+            onchange={handleValueChange}
+            max="500"
+          ></lightning-slider>
+          <lightning-input
+            type="toggle"
+            label="Or Geolocation (OPA Data)"
+            name="usingGeolocation"
+            value={usingGeolocation}
+            onchange={handleGeolocation}
+          ></lightning-input>
+        </template>
+      </template>
+      <template lwc:else>
+        <p class="slds-text-color_error">
+          No coordinates, please update Client address
+        </p>
+      </template>
+      <lightning-input
+        type="text"
+        label="Keyword"
+        name="keyword"
+        onchange={handleValueChange}
+      ></lightning-input>
+      <lightning-combobox
+        name="jobType"
+        label="Type"
+        placeholder="Candidate Type"
+        value={selectedType}
+        onchange={handleTypeChange}
+        options={typeOptions}
+      ></lightning-combobox>
+    </div>
+    <div>
+      <lightning-button
+        label="Search"
+        onclick={handleSearch}
+      ></lightning-button>
+    </div>
+    <c-candidates-search-results
+      search-results={searchResults}
+      mail-shot-id={recordId}
+      onrefresh={handleRefresh}
+      show-distance={usingLocation}
+    ></c-candidates-search-results>
+  </lightning-card>
+</template>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>LegacyOpaID__c</columns>
+    <columns>Birthday__c</columns>
+    <columns>Description__c</columns>
+    <columns>Education__c</columns>
+    <columns>Studierichting__c</columns>
+    <columns>Email__c</columns>
+    <columns>MailingPostcode__c</columns>
+    <columns>MailingCity__c</columns>
+    <columns>MailingCountry__c</columns>
+    <columns>MailingStreet__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Records</label>
+</ListView>

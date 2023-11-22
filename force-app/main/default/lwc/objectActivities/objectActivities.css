@@ -1,0 +1,40 @@
+.object-avtivities-table {
+  /*--lwc-tableCellSpacing: 10px 8px;*/
+  --slds-g-color-border-base-1: #f0f0f0;
+  --lwc-brandTextLink: #1b73e8;
+}
+.object-avtivities-table .slds-icon-standard-email,
+.object-avtivities-table .slds-icon-standard-call {
+  --sds-c-icon-color-background: #89ce30;
+}
+.object-avtivities-table .slds-table {
+  font-size: 10px;
+}
+.object-avtivities-table .slds-table th {
+  background-color: #ffffff;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  color: #8d8d8d;
+  padding-top: 28px;
+}
+.object-avtivities-table .slds-table tbody tr {
+  --lwc-spacingLarge: 30px;
+}
+.object-avtivities-table .slds-table tbody tr td {
+  color: #000000;
+  font-weight: 400;
+  line-height: 24px;
+  text-wrap: balance;
+}
+.object-avtivities-table .slds-table tbody tr td a {
+  font-weight: 500;
+}
+.object-avtivities-table .slds-table .header-inner-box,
+.object-avtivities-table .slds-table tbody tr td .icon-wrapper {
+  display: flex;
+  align-items: center;
+}
+.sort-icon {
+  color: #7878784d;
+}

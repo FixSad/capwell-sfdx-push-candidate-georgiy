@@ -1,0 +1,3 @@
+<aura:component implements="lightning:isUrlAddressable">
+    <c:mailshotCanvassing></c:mailshotCanvassing>
+</aura:component>

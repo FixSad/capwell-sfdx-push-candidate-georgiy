@@ -1,0 +1,39 @@
+<template>
+    <template if:true={isCompleted}>
+        <li class="slds-progress__item slds-is-completed">
+            <span
+                class="slds-icon_container slds-icon-utility-success slds-progress__marker slds-progress__marker_icon slds-progress__marker_icon-success"
+                title="Complete">
+                <svg focusable="false" data-key="success" aria-hidden="true" class="slds-button__icon">
+                    <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#success"></use>
+                </svg>
+                <span class="slds-assistive-text">Complete</span>
+            </span>
+            <div class="slds-progress__item_content slds-grid slds-grid_align-spread">
+                <a onclick={handleClick} data-name={item}>{item}</a>
+            </div>
+        </li>
+    </template>
+    <template if:false={isCompleted}>
+        <template if:true={isActive}>
+            <li class="slds-progress__item slds-is-active">
+                <div class="slds-progress__marker">
+                    <span class="slds-assistive-text">Active</span>
+                </div>
+                <div class="slds-progress__item_content slds-grid slds-grid_align-spread">
+                    <a onclick={handleClick} data-name={item}>{item}</a>
+                </div>
+            </li>    
+        </template>
+        <template if:false={isActive}>
+            <li class="slds-progress__item">
+                <div class="slds-progress__marker">
+                    <span class="slds-assistive-text">Active</span>
+                </div>
+                <div class="slds-progress__item_content slds-grid slds-grid_align-spread">
+                    <a onclick={handleClick} data-name={item}>{item}</a>
+                </div>
+            </li>
+        </template>
+    </template>
+</template>

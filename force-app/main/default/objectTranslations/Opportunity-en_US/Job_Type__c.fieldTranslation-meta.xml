@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Job Type --></label>
+    <name>Job_Type__c</name>
+    <picklistValues>
+        <masterLabel>CW</masterLabel>
+        <translation><!-- CW --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Content</masterLabel>
+        <translation><!-- Content --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>E4O</masterLabel>
+        <translation><!-- E4O --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Live</masterLabel>
+        <translation><!-- Live --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,76 @@
+LIST<client_label__c> labels = [SELECT id, LegacyOpaID_Company__c, LegacyOpaID_Label__c 
+                                FROM client_label__c 
+                                    WHERE ((username__c in ('TimG', 'Michael', 'britt') and owner__c = 'recruiter')  
+                                        OR (owner__c='system' AND type__c = 'OR'))
+                                    AND isProcessed__c=false LIMIT 100];
+
+List<Account> client = [SELECT Id, LegacyOpaID__c FROM Account WHERE isProcessed__c=true AND RecordType.Name='Client'];
+List<Client_List__c> lists = [SELECT Id, LegacyOpaID__c FROM Client_List__c];
+List<Client_List_Association__c> newMapping = new List<Client_List_Association__c>();
+for (client_label__c tmpRec : labels) {
+    String clientId = '';
+    for (Account acc : client) {
+        if (acc.LegacyOpaID__c == tmpRec.LegacyOpaID_Company__c) {
+            clientId = acc.Id;
+            break;
+        }
+    }
+    if (String.isNotBlank(clientId)) {
+        String listId = '';
+        for (Client_List__c tmpList : lists) {
+            if (tmpList.LegacyOpaID__c == tmpRec.LegacyOpaID_Label__c) {
+                listId = tmpList.id;
+                break;
+            }
+        }
+        if (String.isNotBlank(listId)) {
+            Client_List_Association__c tmpAss = new Client_List_Association__c();
+            tmpAss.Account__c = clientId;
+            tmpAss.Client_List__c = listId;
+            tmpAss.LegacyOpaClient__c = tmpRec.LegacyOpaID_Company__c;
+            tmpAss.LegacyOpaLabel__c = tmpRec.LegacyOpaID_Label__c;
+            tmpAss.client_label_id__c = tmpRec.id;
+            newMapping.add(tmpAss);
+        } else {
+            system.debug('List not found '+tmpRec.LegacyOpaID_Label__c);
+        }
+    } else {
+        system.debug('Account not found '+tmpRec.LegacyOpaID_Company__c);
+    }
+}
+if (!newMapping.isEmpty()) {
+    Map<String, String> badId = new Map<String, String>();
+    Set<String> goodId = new Set<String>();
+    Set<String> badIds = new Set<String>();
+    Database.SaveResult[] res = Database.insert(newMapping, false);
+    for (Database.SaveResult result : res) {
+        if (result.isSuccess()) {
+            goodId.add(result.getId());
+        } else {
+            String errMessage = '';
+            for (Database.Error er : result.getErrors()) {
+                errMessage += er.getMessage() + ' --- ';
+            }
+
+            badId.put(result.getId(), errMessage);
+            badIds.add(result.getId());
+        }
+    }
+    system.debug(badId);
+    if (!goodId.isEmpty()) {
+        List<Client_List_Association__c> tmpAssList = [SELECT client_label_id__c FROM Client_List_Association__c WHERE Id IN :goodId];
+        Set<String> idsToUpdate = new Set<String>();
+        for (Client_List_Association__c tmpLsRec : tmpAssList) {
+            idsToUpdate.add(tmpLsRec.client_label_id__c);
+        }
+        List<client_label__c> toUpdate = [SELECT Id FROM client_label__c WHERE Id IN :idsToUpdate];
+        if (toUpdate!=null) {
+            if (!toUpdate.isEmpty()) {
+                for (client_label__c tRec : toUpdate) {
+                    tRec.isProcessed__c = true;
+                }
+                update toUpdate;
+            }
+        }
+    }
+}

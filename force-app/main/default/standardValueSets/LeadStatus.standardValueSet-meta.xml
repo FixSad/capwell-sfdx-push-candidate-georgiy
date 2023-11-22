@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>New</fullName>
+        <default>true</default>
+        <label>New</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Business Qualification</fullName>
+        <default>false</default>
+        <label>Business Qualification</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Team Qualification</fullName>
+        <default>false</default>
+        <label>Team Qualification</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Job Qualification</fullName>
+        <default>false</default>
+        <label>Job Qualification</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Necessary HOT-ness</fullName>
+        <default>false</default>
+        <label>Necessary HOT-ness</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Expectations</fullName>
+        <default>false</default>
+        <label>Expectations</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Job Rating</fullName>
+        <default>false</default>
+        <label>Job Rating</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>On Hold</fullName>
+        <default>false</default>
+        <label>On Hold</label>
+        <converted>false</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Qualified</fullName>
+        <default>false</default>
+        <label>Qualified</label>
+        <converted>true</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Unqualified</fullName>
+        <default>false</default>
+        <label>Unqualified</label>
+        <converted>false</converted>
+    </standardValue>
+</StandardValueSet>

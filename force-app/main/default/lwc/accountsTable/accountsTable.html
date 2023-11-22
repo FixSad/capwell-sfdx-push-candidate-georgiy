@@ -1,0 +1,107 @@
+<template>
+  <div
+    class="slds-box slds-grid slds-grid_vertical-align-start slds-wrap slds-theme_default"
+  >
+    <div class="slds-col slds-size_12-of-12">
+      <div class="slds-clearfix">
+        <div class="slds-float_left">
+          <div
+            class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left"
+          >
+            <lightning-icon
+              size="x-small"
+              class="slds-icon slds-input__icon slds-icon-text-default"
+              icon-name="utility:search"
+            >
+            </lightning-icon>
+            <input
+              type="text"
+              size="28"
+              maxlength="40"
+              role="textbox"
+              placeholder={placeholder}
+              oninput={handleKeyChange}
+              autocomplete="on"
+              class="slds-input slds-combobox__input"
+            />
+          </div>
+        </div>
+        <div class="slds-float_right">
+          <div class="slds-clearfix">
+            <div class="slds-float_left">
+              <lightning-button
+                label="Move"
+                disabled={disabledMove}
+                onclick={handleMoveButton}
+                title="Move"
+                class="slds-m-left_x-small"
+              >
+              </lightning-button>
+            </div>
+            <div class="slds-float_right">
+              <lightning-button
+                variant="brand"
+                label="Canvass"
+                title="Canvass"
+                onclick={handleCanvasing}
+                class="slds-m-left_x-small"
+              >
+              </lightning-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slds-col slds-size_12-of-12 slds-scrollable slds-p-top_medium">
+      <lightning-datatable
+        key-field="id"
+        class="style"
+        data={filteredResult}
+        column-widths-mode="auto"
+        enable-infinite-loading
+        onrowaction={handleClickButton}
+        onrowselection={handleSelectAccs}
+        columns={columns}
+      >
+      </lightning-datatable>
+    </div>
+  </div>
+
+  <div if:true={showModal}>
+    <c-universal-modal
+      title={modalTitle}
+      onclose={switchShowModal}
+      size="small"
+    >
+      <div style="max-height: 300px">
+        <lightning-datatable
+          key-field="id"
+          class="style"
+          data={userClientLists}
+          column-widths-mode="auto"
+          enable-infinite-loading
+          max-row-selection="1"
+          onrowselection={handleSelectClientList}
+          columns={modalColumns}
+        >
+        </lightning-datatable>
+      </div>
+      <div slot="footer">
+        <lightning-button
+          class="slds-p-right_small"
+          label="Close"
+          variant="neutral"
+          onclick={switchShowModal}
+        >
+        </lightning-button>
+        <lightning-button
+          label="Move"
+          variant="brand"
+          disabled={disabledModalMove}
+          onclick={moveAccounts}
+        >
+        </lightning-button>
+      </div>
+    </c-universal-modal>
+  </div>
+</template>

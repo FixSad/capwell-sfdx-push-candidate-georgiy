@@ -1,0 +1,29 @@
+<template>
+    <div>
+        <template if:true={hasResults}>
+            <h2>Total Search Results: {getTotal}</h2>
+            <template if:true={showDistance}>
+                <lightning-datatable 
+                    key-field="Id" 
+                    data={searchResults} 
+                    columns={columnsLocation}
+                    onrowselection={getSelectedRows}>
+                </lightning-datatable>
+            </template>
+            <template if:false={showDistance}>
+                <lightning-datatable 
+                    key-field="Id" 
+                    data={searchResults} 
+                    columns={columns}
+                    onrowselection={getSelectedRows} > 
+                </lightning-datatable>
+            </template>
+        </template>
+        <template if:false={hasResults}>
+            <h3>No Results</h3>
+        </template>
+        <template if:true={hasSelectedRows}>
+            <lightning-button label="Add to Mailshot" onclick={handleAddMailshot}></lightning-button>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,136 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP_FI"
+      },
+      "Name": "SAP FI",
+      "Parent__c": "@Skill__ERP_SAP",
+      "Alias__C": "SAP Finance",
+      "LegacySkillId__C": 547
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP_CO"
+      },
+      "Name": "SAP CO",
+      "Parent__c": "@Skill__ERP_SAP"
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP_SD"
+      },
+      "Name": "SAP SD",
+      "Parent__c": "@Skill__ERP_SAP",
+      "Alias__C": "SAP Logistics",
+      "LegacySkillId__C": 546
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP_MM"
+      },
+      "Name": "SAP MM",
+      "Parent__c": "@Skill__ERP_SAP"
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP_WM"
+      },
+      "Name": "SAP WM",
+      "Parent__c": "@Skill__ERP_SAP"
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP_CS"
+      },
+      "Name": "SAP CS",
+      "Parent__c": "@Skill__ERP_SAP",
+      "Alias__C": "SAP Asset Management",
+      "LegacySkillId__C": 548
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP_QM"
+      },
+      "Name": "SAP QM",
+      "Parent__c": "@Skill__ERP_SAP"
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP_PS"
+      },
+      "Name": "SAP PS",
+      "Parent__c": "@Skill__ERP_SAP"
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP_PP"
+      },
+      "Name": "SAP PP",
+      "Parent__c": "@Skill__ERP_SAP"
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP_PM"
+      },
+      "Name": "SAP PM",
+      "Parent__c": "@Skill__ERP_SAP",
+      "Alias__C": "SAP Production",
+      "LegacySkillId__C": 359
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP_ABAP"
+      },
+      "Name": "SAP ABAP",
+      "Parent__c": "@Skill__ERP_SAP",
+      "LegacySkillId__C": 521
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP_NETWEAVER"
+      },
+      "Name": "SAP Netweaver",
+      "Parent__c": "@Skill__ERP_SAP",
+      "LegacySkillId__C": 551
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP_BW"
+      },
+      "Name": "SAP BW",
+      "Parent__c": "@Skill__ERP_SAP",
+      "LegacySkillId__C": 554
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP_BO"
+      },
+      "Name": "SAP BO",
+      "Parent__c": "@Skill__ERP_SAP"
+    },
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__ERP_SAP_BASIS"
+      },
+      "Name": "SAP Basis",
+      "Parent__c": "@Skill__ERP_SAP",
+      "LegacySkillId__C": 552
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+<template>
+    <template if:true={isRadio}>
+        <lightning-radio-group name={title}
+                                label={title}
+                                options={options}
+                                value={selectedMarket}
+                                type="button"
+                                onchange={handleSelect}>
+        </lightning-radio-group>
+    </template>
+    <template if:false={isRadio}>
+        <lightning-checkbox-group name={title}
+                              label={title}
+                              options={options}
+                              value={selectedMarkets}
+                              onchange={handleSelect}>
+        </lightning-checkbox-group>
+    </template>
+</template>

@@ -1,0 +1,80 @@
+<template>
+  <lightning-card title="Tracking">
+    <lightning-button
+      label="New"
+      slot="actions"
+      onclick={handleNewLog}
+    ></lightning-button>
+    <div class="slds-scrollable_y object-avtivities-table" style="height: auto">
+      <template lwc:if={columns}>
+        <table
+          class="slds-table slds-table_cell-buffer slds-table_bordered"
+          aria-labelledby="element-with-table-label other-element-with-table-label"
+        >
+          <thead>
+            <tr class="slds-line-height_reset">
+              <template for:each={columns} for:item="column">
+                <th class="" scope="col" key={column.fieldName}>
+                  <div class="header-inner-box">
+                    <div class="slds-truncate" title={column.label}>
+                      {column.label}
+                    </div>
+                    <lightning-icon
+                      lwc:if={column.sort}
+                      icon-name="utility:chevrondown"
+                      alternative-text="Sort"
+                      title="Sort"
+                      size="x-small"
+                      class="sort-icon slds-current-color slds-m-left_x-small"
+                    ></lightning-icon>
+                  </div>
+                </th>
+              </template>
+            </tr>
+          </thead>
+          <tbody>
+            <template lwc:if={data}>
+              <template for:each={data} for:item="rowData">
+                <tr class="slds-hint-parent" key={rowData.id}>
+                  <td class={rowData.activityClass}>
+                    <div class="icon-wrapper">
+                      <lightning-icon
+                        icon-name={rowData.activityIcon}
+                        size="small"
+                      ></lightning-icon>
+                      <span class="slds-m-left_small">{rowData.subType}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <a href={rowData.idURL}>{rowData.activityFormated}</a>
+                  </td>
+                  <td>
+                    <a href={rowData.whoURL} target="_blank"
+                      >{rowData.whoName}</a
+                    >
+                  </td>
+                  <td>{rowData.subject}</td>
+                  <td>
+                    <lightning-formatted-rich-text
+                      value={rowData.description}
+                    ></lightning-formatted-rich-text>
+                  </td>
+                  <td>
+                    <a href={rowData.ownerURL} target="_blank"
+                      >{rowData.ownerName}</a
+                    >
+                  </td>
+                  <td>
+                    <a href={rowData.whatURL} target="_blank"
+                      >{rowData.whatName}</a
+                    >
+                  </td>
+                </tr>
+              </template>
+            </template>
+          </tbody>
+        </table>
+      </template>
+    </div>
+  </lightning-card>
+</template>

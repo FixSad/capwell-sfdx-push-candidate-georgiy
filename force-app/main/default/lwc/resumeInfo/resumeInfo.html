@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Resume" icon-name="standard:file">
+        <template if:true={resume.data}>
+            <div class="slds-m-around_medium">
+                <lightning-formatted-text linkify value={text}></lightning-formatted-text>
+            </div>
+        </template>
+        <template if:false={resume.data}>
+            <div class="slds-m-around_medium">
+                <p>This contact isn't provied any resume yet.</p>
+            </div>
+        </template>
+    </lightning-card>
+</template>

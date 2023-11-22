@@ -1,0 +1,14 @@
+{
+  "records": [
+    {
+      "attributes": {
+          "type": "Skill__c",
+          "referenceId": "Skill__MSSQL_DBA"
+      },
+      "Name": "MS SQL DBA",
+      "Alias__c": "Database Administrator",
+      "Parent__c": "@Skill__MSSQL",
+      "LegacySkillId__C": 353
+    }
+  ]
+}
